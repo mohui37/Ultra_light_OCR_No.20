@@ -1,0 +1,106 @@
+!!!!!!!!!ok: 7
+I0519 10:58:29.527081 23522 nccl_context.cc:189] init nccl context nranks: 8 local rank: 7 gpu id: 7 ring id: 0
+W0519 10:58:31.438192 23522 device_context.cc:362] Please NOTE: device: 7, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 10:58:31.444175 23522 device_context.cc:372] device: 7, cuDNN Version: 7.6.
+2021-05-19 10:58:36,088 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+!!!!!!!!!ok: 7
+I0519 10:59:20.930274 29111 nccl_context.cc:189] init nccl context nranks: 8 local rank: 7 gpu id: 7 ring id: 0
+W0519 10:59:23.916385 29111 device_context.cc:362] Please NOTE: device: 7, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 10:59:23.938227 29111 device_context.cc:372] device: 7, cuDNN Version: 7.6.
+2021-05-19 10:59:28,298 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+!!!!!!!!!ok: 7
+I0519 11:08:25.026748 49000 nccl_context.cc:189] init nccl context nranks: 8 local rank: 7 gpu id: 7 ring id: 0
+W0519 11:08:26.921746 49000 device_context.cc:362] Please NOTE: device: 7, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:08:26.948137 49000 device_context.cc:372] device: 7, cuDNN Version: 7.6.
+2021-05-19 11:08:31,839 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+!!!!!!!!!ok: 7
+I0519 11:09:33.587462 54962 nccl_context.cc:189] init nccl context nranks: 8 local rank: 7 gpu id: 7 ring id: 0
+W0519 11:09:35.299966 54962 device_context.cc:362] Please NOTE: device: 7, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:09:35.317003 54962 device_context.cc:372] device: 7, cuDNN Version: 7.6.
+2021-05-19 11:09:39,804 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+W0519 11:09:46.205989 55722 system_allocator.cc:204] cudaHostAlloc failed.
+W0519 11:09:46.412748 55722 naive_best_fit_allocator.cc:379] cudaHostAlloc Cannot allocate 15728640 bytes in CUDAPinnedPlace
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+0   std::thread::_State_impl<std::thread::_Invoker<std::tuple<ThreadPool::ThreadPool(unsigned long)::{lambda()#1}> > >::_M_run()
+1   std::__future_base::_State_baseV2::_M_do_set(std::function<std::unique_ptr<std::__future_base::_Result_base, std::__future_base::_Result_base::_Deleter> ()>*, bool*)
+2   paddle::framework::SignalHandle(char const*, int)
+3   paddle::platform::GetCurrentTraceBackString[abi:cxx11]()
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Segmentation fault` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1621422586 (unix time) try "date -d @1621422586" if you are using GNU date ***]
+  [SignalInfo: *** SIGSEGV (@0x20) received by PID 54962 (TID 0x7f26a57fa700) from PID 32 ***]
+
+!!!!!!!!!ok: 7
+I0519 11:13:06.666621 66397 nccl_context.cc:189] init nccl context nranks: 8 local rank: 7 gpu id: 7 ring id: 0
+W0519 11:13:08.302448 66397 device_context.cc:362] Please NOTE: device: 7, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:13:08.320317 66397 device_context.cc:372] device: 7, cuDNN Version: 7.6.
+2021-05-19 11:13:12,862 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[ERROR:0] global /io/opencv/modules/core/src/parallel_impl.cpp (234) WorkerThread 44: Can't spawn new thread: res = 11
+Traceback (most recent call last):
+  File "tools/train.py", line 27, in <module>
+    import paddle
+  File "/opt/conda/lib/python3.6/site-packages/paddle/__init__.py", line 286, in <module>
+    disable_static()
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/dygraph/base.py", line 156, in enable_dygraph
+    _functional_dygraph_context_manager.__enter__()
+  File "/opt/conda/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/dygraph/base.py", line 381, in guard
+    expected_place = framework._current_expected_place()
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/framework.py", line 292, in _current_expected_place
+    device_count = core.get_cuda_device_count()
+KeyboardInterrupt
+!!!!!!!!!ok: 7
+I0615 03:44:12.854977 83370 nccl_context.cc:189] init nccl context nranks: 8 local rank: 7 gpu id: 7 ring id: 0
+W0615 03:44:14.795030 83370 device_context.cc:362] Please NOTE: device: 7, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0615 03:44:14.800433 83370 device_context.cc:372] device: 7, cuDNN Version: 7.6.
+Traceback (most recent call last):
+  File "tools/train.py", line 134, in <module>
+    main(config, device, logger, vdl_writer)
+  File "tools/train.py", line 53, in main
+    dist.init_parallel_env()
+  File "/opt/conda/lib/python3.6/site-packages/paddle/distributed/parallel.py", line 183, in init_parallel_env
+    parallel_helper._set_parallel_ctx(core.NCCLParallelContext(strategy, place))
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/dygraph/parallel_helper.py", line 34, in _set_parallel_ctx
+    "ParallelContext can only be initialized once."
+AssertionError: ParallelContext can only be initialized once.
+!!!!!!!!!ok: 7
+I0615 03:45:24.650949 85112 nccl_context.cc:189] init nccl context nranks: 8 local rank: 7 gpu id: 7 ring id: 0
+W0615 03:45:26.742060 85112 device_context.cc:362] Please NOTE: device: 7, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0615 03:45:26.770772 85112 device_context.cc:372] device: 7, cuDNN Version: 7.6.
+{'Total': Tensor(shape=[1], dtype=int64, place=CUDAPlace(7), stop_gradient=False,
+       [1725597])}
+2021-06-15 03:45:31,321 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+W0615 03:45:35.829605 85713 system_allocator.cc:204] cudaHostAlloc failed.
+W0615 03:45:35.830075 85713 naive_best_fit_allocator.cc:379] cudaHostAlloc Cannot allocate 15728640 bytes in CUDAPinnedPlace
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+0   std::thread::_State_impl<std::thread::_Invoker<std::tuple<ThreadPool::ThreadPool(unsigned long)::{lambda()#1}> > >::_M_run()
+1   std::__future_base::_State_baseV2::_M_do_set(std::function<std::unique_ptr<std::__future_base::_Result_base, std::__future_base::_Result_base::_Deleter> ()>*, bool*)
+2   paddle::framework::SignalHandle(char const*, int)
+3   paddle::platform::GetCurrentTraceBackString[abi:cxx11]()
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Segmentation fault` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1623728735 (unix time) try "date -d @1623728735" if you are using GNU date ***]
+  [SignalInfo: *** SIGSEGV (@0x20) received by PID 85112 (TID 0x7f376d7fa700) from PID 32 ***]
+
+!!!!!!!!!ok: 7
+I0616 07:36:12.522675 16313 nccl_context.cc:189] init nccl context nranks: 8 local rank: 7 gpu id: 7 ring id: 0
+W0616 07:36:15.413614 16313 device_context.cc:362] Please NOTE: device: 7, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0616 07:36:15.423316 16313 device_context.cc:372] device: 7, cuDNN Version: 7.6.
+{'Total': Tensor(shape=[1], dtype=int64, place=CUDAPlace(7), stop_gradient=False,
+       [1853875])}
+2021-06-16 07:36:21,773 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!

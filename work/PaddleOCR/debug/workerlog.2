@@ -1,0 +1,67 @@
+!!!!!!!!!ok: 2
+I0527 07:26:39.511293   227 nccl_context.cc:189] init nccl context nranks: 4 local rank: 2 gpu id: 2 ring id: 0
+W0527 07:26:40.826232   227 device_context.cc:362] Please NOTE: device: 2, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0527 07:26:40.840883   227 device_context.cc:372] device: 2, cuDNN Version: 7.6.
+[2021/05/27 07:26:44] root ERROR: No Images in train dataset, please ensure
+	1. The images num in the train label_file_list should be larger than or equal with batch size.
+	2. The annotation file and path in the configuration file are provided normally.
+!!!!!!!!!ok: 2
+I0527 07:42:56.356376   229 nccl_context.cc:189] init nccl context nranks: 4 local rank: 2 gpu id: 2 ring id: 0
+W0527 07:43:00.019887   229 device_context.cc:362] Please NOTE: device: 2, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0527 07:43:00.023906   229 device_context.cc:372] device: 2, cuDNN Version: 7.6.
+Traceback (most recent call last):
+  File "tools/train.py", line 126, in <module>
+    main(config, device, logger, vdl_writer)
+  File "tools/train.py", line 52, in main
+    train_dataloader = build_dataloader(config, 'Train', device, logger)
+  File "/root/ppocr_mh/work/PaddleOCR/ppocr/data/__init__.py", line 65, in build_dataloader
+    dataset = eval(module_name)(config, mode, logger, seed)
+  File "/root/ppocr_mh/work/PaddleOCR/ppocr/data/simple_dataset.py", line 47, in __init__
+    self.data_lines = self.get_image_info_list(label_file_list, ratio_list)
+  File "/root/ppocr_mh/work/PaddleOCR/ppocr/data/simple_dataset.py", line 58, in get_image_info_list
+    with open(file, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../../data/训练数据集/train_clear_0527_0-50000_train.txt'
+!!!!!!!!!ok: 2
+I0527 07:43:36.481603   229 nccl_context.cc:189] init nccl context nranks: 4 local rank: 2 gpu id: 2 ring id: 0
+W0527 07:43:40.174054   229 device_context.cc:362] Please NOTE: device: 2, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0527 07:43:40.180749   229 device_context.cc:372] device: 2, cuDNN Version: 7.6.
+2021-05-27 07:43:43,447 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+!!!!!!!!!ok: 2
+I0527 07:44:30.207767 74070 nccl_context.cc:189] init nccl context nranks: 4 local rank: 2 gpu id: 2 ring id: 0
+W0527 07:44:31.127334 74070 device_context.cc:362] Please NOTE: device: 2, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0527 07:44:31.130960 74070 device_context.cc:372] device: 2, cuDNN Version: 7.6.
+2021-05-27 07:44:34,527 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+!!!!!!!!!ok: 2
+I0527 07:50:20.030584   229 nccl_context.cc:189] init nccl context nranks: 4 local rank: 2 gpu id: 2 ring id: 0
+W0527 07:50:21.142010   229 device_context.cc:362] Please NOTE: device: 2, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0527 07:50:21.146327   229 device_context.cc:372] device: 2, cuDNN Version: 7.6.
+Traceback (most recent call last):
+  File "tools/train.py", line 126, in <module>
+    main(config, device, logger, vdl_writer)
+  File "tools/train.py", line 52, in main
+    train_dataloader = build_dataloader(config, 'Train', device, logger)
+  File "/root/ppocr_mh/work/PaddleOCR/ppocr/data/__init__.py", line 65, in build_dataloader
+    dataset = eval(module_name)(config, mode, logger, seed)
+  File "/root/ppocr_mh/work/PaddleOCR/ppocr/data/simple_dataset.py", line 47, in __init__
+    self.data_lines = self.get_image_info_list(label_file_list, ratio_list)
+  File "/root/ppocr_mh/work/PaddleOCR/ppocr/data/simple_dataset.py", line 58, in get_image_info_list
+    with open(file, "rb") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '../../data/训练数据集/train_clear_0527_0-50000_train.txt'
+!!!!!!!!!ok: 2
+I0527 07:54:56.953099   229 nccl_context.cc:189] init nccl context nranks: 4 local rank: 2 gpu id: 2 ring id: 0
+W0527 07:54:58.177315   229 device_context.cc:362] Please NOTE: device: 2, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0527 07:54:58.182862   229 device_context.cc:372] device: 2, cuDNN Version: 7.6.
+2021-05-27 07:55:01,984 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+!!!!!!!!!ok: 2
+I0527 07:55:17.888123   229 nccl_context.cc:189] init nccl context nranks: 4 local rank: 2 gpu id: 2 ring id: 0
+W0527 07:55:18.936221   229 device_context.cc:362] Please NOTE: device: 2, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0527 07:55:18.940970   229 device_context.cc:372] device: 2, cuDNN Version: 7.6.
+2021-05-27 07:55:22,554 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+main proc 60893 exit, kill process group 73998
+main proc 60729 exit, kill process group 73998
+main proc 60247 exit, kill process group 73998
+main proc 59848 exit, kill process group 73998
+main proc 60892 exit, kill process group 73998
+main proc 59857 exit, kill process group 73998
+main proc 59851 exit, kill process group 73998
+main proc 59854 exit, kill process group 73998

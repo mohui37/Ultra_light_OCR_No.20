@@ -1,0 +1,2696 @@
+!!!!!!!!!ok: 0
+[2021/05/19 10:25:03] root INFO: Architecture : 
+[2021/05/19 10:25:03] root INFO:     Backbone : 
+[2021/05/19 10:25:03] root INFO:         model_name : small
+[2021/05/19 10:25:03] root INFO:         name : MobileNetV3
+[2021/05/19 10:25:03] root INFO:         scale : 0.5
+[2021/05/19 10:25:03] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 10:25:03] root INFO:     Head : 
+[2021/05/19 10:25:03] root INFO:         fc_decay : 1e-05
+[2021/05/19 10:25:03] root INFO:         name : CTCHead
+[2021/05/19 10:25:03] root INFO:     Neck : 
+[2021/05/19 10:25:03] root INFO:         encoder_type : rnn
+[2021/05/19 10:25:03] root INFO:         hidden_size : 48
+[2021/05/19 10:25:03] root INFO:         name : SequenceEncoder
+[2021/05/19 10:25:03] root INFO:     Transform : None
+[2021/05/19 10:25:03] root INFO:     algorithm : CRNN
+[2021/05/19 10:25:03] root INFO:     model_type : rec
+[2021/05/19 10:25:03] root INFO: Eval : 
+[2021/05/19 10:25:03] root INFO:     dataset : 
+[2021/05/19 10:25:03] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 10:25:03] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 10:25:03] root INFO:         name : SimpleDataSet
+[2021/05/19 10:25:03] root INFO:         transforms : 
+[2021/05/19 10:25:03] root INFO:             DecodeImage : 
+[2021/05/19 10:25:03] root INFO:                 channel_first : False
+[2021/05/19 10:25:03] root INFO:                 img_mode : BGR
+[2021/05/19 10:25:03] root INFO:             CTCLabelEncode : None
+[2021/05/19 10:25:03] root INFO:             RecResizeImg : 
+[2021/05/19 10:25:03] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 10:25:03] root INFO:             KeepKeys : 
+[2021/05/19 10:25:03] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 10:25:03] root INFO:     loader : 
+[2021/05/19 10:25:03] root INFO:         batch_size_per_card : 256
+[2021/05/19 10:25:03] root INFO:         drop_last : False
+[2021/05/19 10:25:03] root INFO:         num_workers : 8
+[2021/05/19 10:25:03] root INFO:         shuffle : False
+[2021/05/19 10:25:03] root INFO: Global : 
+[2021/05/19 10:25:03] root INFO:     cal_metric_during_train : True
+[2021/05/19 10:25:03] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 10:25:03] root INFO:     character_type : ch
+[2021/05/19 10:25:03] root INFO:     checkpoints : None
+[2021/05/19 10:25:03] root INFO:     debug : False
+[2021/05/19 10:25:03] root INFO:     distributed : True
+[2021/05/19 10:25:03] root INFO:     epoch_num : 500
+[2021/05/19 10:25:03] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 10:25:03] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 10:25:03] root INFO:     infer_mode : False
+[2021/05/19 10:25:03] root INFO:     log_smooth_window : 20
+[2021/05/19 10:25:03] root INFO:     max_text_length : 25
+[2021/05/19 10:25:03] root INFO:     pretrained_model : None
+[2021/05/19 10:25:03] root INFO:     print_batch_step : 10
+[2021/05/19 10:25:03] root INFO:     save_epoch_step : 3
+[2021/05/19 10:25:03] root INFO:     save_inference_dir : None
+[2021/05/19 10:25:03] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 10:25:03] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 10:25:03] root INFO:     use_gpu : True
+[2021/05/19 10:25:03] root INFO:     use_space_char : True
+[2021/05/19 10:25:03] root INFO:     use_visualdl : False
+[2021/05/19 10:25:03] root INFO: Loss : 
+[2021/05/19 10:25:03] root INFO:     name : CTCLoss
+[2021/05/19 10:25:03] root INFO: Metric : 
+[2021/05/19 10:25:03] root INFO:     main_indicator : acc
+[2021/05/19 10:25:03] root INFO:     name : RecMetric
+[2021/05/19 10:25:03] root INFO: Optimizer : 
+[2021/05/19 10:25:03] root INFO:     beta1 : 0.9
+[2021/05/19 10:25:03] root INFO:     beta2 : 0.999
+[2021/05/19 10:25:03] root INFO:     lr : 
+[2021/05/19 10:25:03] root INFO:         learning_rate : 0.001
+[2021/05/19 10:25:03] root INFO:         name : Cosine
+[2021/05/19 10:25:03] root INFO:     name : Adam
+[2021/05/19 10:25:03] root INFO:     regularizer : 
+[2021/05/19 10:25:03] root INFO:         factor : 1e-05
+[2021/05/19 10:25:03] root INFO:         name : L2
+[2021/05/19 10:25:03] root INFO: PostProcess : 
+[2021/05/19 10:25:03] root INFO:     name : CTCLabelDecode
+[2021/05/19 10:25:03] root INFO: Train : 
+[2021/05/19 10:25:03] root INFO:     dataset : 
+[2021/05/19 10:25:03] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 10:25:03] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 10:25:03] root INFO:         name : SimpleDataSet
+[2021/05/19 10:25:03] root INFO:         transforms : 
+[2021/05/19 10:25:03] root INFO:             DecodeImage : 
+[2021/05/19 10:25:03] root INFO:                 channel_first : False
+[2021/05/19 10:25:03] root INFO:                 img_mode : BGR
+[2021/05/19 10:25:03] root INFO:             RecAug : None
+[2021/05/19 10:25:03] root INFO:             CTCLabelEncode : None
+[2021/05/19 10:25:03] root INFO:             RecResizeImg : 
+[2021/05/19 10:25:03] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 10:25:03] root INFO:             KeepKeys : 
+[2021/05/19 10:25:03] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 10:25:03] root INFO:     loader : 
+[2021/05/19 10:25:03] root INFO:         batch_size_per_card : 256
+[2021/05/19 10:25:03] root INFO:         drop_last : True
+[2021/05/19 10:25:03] root INFO:         num_workers : 8
+[2021/05/19 10:25:03] root INFO:         shuffle : True
+[2021/05/19 10:25:03] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0519 10:25:03.528111 206942 nccl_context.cc:189] init nccl context nranks: 4 local rank: 0 gpu id: 0 ring id: 0
+W0519 10:25:04.604722 206942 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 10:25:04.609177 206942 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 10:25:08] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 10:25:08] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 10:25:09,052 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 10:25:09] root INFO: train from scratch
+[2021/05/19 10:25:09] root INFO: train dataloader has 97 iters
+[2021/05/19 10:25:09] root INFO: valid dataloader has 391 iters
+[2021/05/19 10:25:09] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 10:25:09] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 10:36:31] root INFO: epoch: [1/500], iter: 10, lr: 0.001000, loss: 612.664795, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.65586 s, batch_cost: 64.73827 s, samples: 2816, ips: 4.34982
+[2021/05/19 10:48:31] root INFO: epoch: [1/500], iter: 20, lr: 0.001000, loss: 489.070618, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00196 s, batch_cost: 69.07590 s, samples: 2560, ips: 3.70607
+main proc 208605 exit, kill process group 206927
+main proc 208577 exit, kill process group 206927
+main proc 208603 exit, kill process group 206927
+main proc 208602 exit, kill process group 206927
+main proc 208607 exit, kill process group 206927
+main proc 208480 exit, kill process group 206927
+!!!!!!!!!ok: 0
+[2021/05/19 10:58:26] root INFO: Architecture : 
+[2021/05/19 10:58:26] root INFO:     Backbone : 
+[2021/05/19 10:58:26] root INFO:         model_name : small
+[2021/05/19 10:58:26] root INFO:         name : MobileNetV3
+[2021/05/19 10:58:26] root INFO:         scale : 0.5
+[2021/05/19 10:58:26] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 10:58:26] root INFO:     Head : 
+[2021/05/19 10:58:26] root INFO:         fc_decay : 1e-05
+[2021/05/19 10:58:26] root INFO:         name : CTCHead
+[2021/05/19 10:58:26] root INFO:     Neck : 
+[2021/05/19 10:58:26] root INFO:         encoder_type : rnn
+[2021/05/19 10:58:26] root INFO:         hidden_size : 48
+[2021/05/19 10:58:26] root INFO:         name : SequenceEncoder
+[2021/05/19 10:58:26] root INFO:     Transform : None
+[2021/05/19 10:58:26] root INFO:     algorithm : CRNN
+[2021/05/19 10:58:26] root INFO:     model_type : rec
+[2021/05/19 10:58:26] root INFO: Eval : 
+[2021/05/19 10:58:26] root INFO:     dataset : 
+[2021/05/19 10:58:26] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 10:58:26] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 10:58:26] root INFO:         name : SimpleDataSet
+[2021/05/19 10:58:26] root INFO:         transforms : 
+[2021/05/19 10:58:26] root INFO:             DecodeImage : 
+[2021/05/19 10:58:26] root INFO:                 channel_first : False
+[2021/05/19 10:58:26] root INFO:                 img_mode : BGR
+[2021/05/19 10:58:26] root INFO:             CTCLabelEncode : None
+[2021/05/19 10:58:26] root INFO:             RecResizeImg : 
+[2021/05/19 10:58:26] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 10:58:26] root INFO:             KeepKeys : 
+[2021/05/19 10:58:26] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 10:58:26] root INFO:     loader : 
+[2021/05/19 10:58:26] root INFO:         batch_size_per_card : 256
+[2021/05/19 10:58:26] root INFO:         drop_last : False
+[2021/05/19 10:58:26] root INFO:         num_workers : 8
+[2021/05/19 10:58:26] root INFO:         shuffle : False
+[2021/05/19 10:58:26] root INFO: Global : 
+[2021/05/19 10:58:26] root INFO:     cal_metric_during_train : True
+[2021/05/19 10:58:26] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 10:58:26] root INFO:     character_type : ch
+[2021/05/19 10:58:26] root INFO:     checkpoints : None
+[2021/05/19 10:58:26] root INFO:     debug : False
+[2021/05/19 10:58:26] root INFO:     distributed : True
+[2021/05/19 10:58:26] root INFO:     epoch_num : 500
+[2021/05/19 10:58:26] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 10:58:26] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 10:58:26] root INFO:     infer_mode : False
+[2021/05/19 10:58:26] root INFO:     log_smooth_window : 20
+[2021/05/19 10:58:26] root INFO:     max_text_length : 25
+[2021/05/19 10:58:26] root INFO:     pretrained_model : None
+[2021/05/19 10:58:26] root INFO:     print_batch_step : 10
+[2021/05/19 10:58:26] root INFO:     save_epoch_step : 3
+[2021/05/19 10:58:26] root INFO:     save_inference_dir : None
+[2021/05/19 10:58:26] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 10:58:26] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 10:58:26] root INFO:     use_gpu : True
+[2021/05/19 10:58:26] root INFO:     use_space_char : True
+[2021/05/19 10:58:26] root INFO:     use_visualdl : False
+[2021/05/19 10:58:26] root INFO: Loss : 
+[2021/05/19 10:58:26] root INFO:     name : CTCLoss
+[2021/05/19 10:58:26] root INFO: Metric : 
+[2021/05/19 10:58:26] root INFO:     main_indicator : acc
+[2021/05/19 10:58:26] root INFO:     name : RecMetric
+[2021/05/19 10:58:26] root INFO: Optimizer : 
+[2021/05/19 10:58:26] root INFO:     beta1 : 0.9
+[2021/05/19 10:58:26] root INFO:     beta2 : 0.999
+[2021/05/19 10:58:26] root INFO:     lr : 
+[2021/05/19 10:58:26] root INFO:         learning_rate : 0.001
+[2021/05/19 10:58:26] root INFO:         name : Cosine
+[2021/05/19 10:58:26] root INFO:     name : Adam
+[2021/05/19 10:58:26] root INFO:     regularizer : 
+[2021/05/19 10:58:26] root INFO:         factor : 1e-05
+[2021/05/19 10:58:26] root INFO:         name : L2
+[2021/05/19 10:58:26] root INFO: PostProcess : 
+[2021/05/19 10:58:26] root INFO:     name : CTCLabelDecode
+[2021/05/19 10:58:26] root INFO: Train : 
+[2021/05/19 10:58:26] root INFO:     dataset : 
+[2021/05/19 10:58:26] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 10:58:26] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 10:58:26] root INFO:         name : SimpleDataSet
+[2021/05/19 10:58:26] root INFO:         transforms : 
+[2021/05/19 10:58:26] root INFO:             DecodeImage : 
+[2021/05/19 10:58:26] root INFO:                 channel_first : False
+[2021/05/19 10:58:26] root INFO:                 img_mode : BGR
+[2021/05/19 10:58:26] root INFO:             RecAug : None
+[2021/05/19 10:58:26] root INFO:             CTCLabelEncode : None
+[2021/05/19 10:58:26] root INFO:             RecResizeImg : 
+[2021/05/19 10:58:26] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 10:58:26] root INFO:             KeepKeys : 
+[2021/05/19 10:58:26] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 10:58:26] root INFO:     loader : 
+[2021/05/19 10:58:26] root INFO:         batch_size_per_card : 128
+[2021/05/19 10:58:26] root INFO:         drop_last : True
+[2021/05/19 10:58:26] root INFO:         num_workers : 8
+[2021/05/19 10:58:26] root INFO:         shuffle : True
+[2021/05/19 10:58:26] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+W0519 10:58:26.526535 23487 nccl_context.cc:142] Socket connect worker 127.0.0.1:49443 failed, try again after 3 seconds.
+I0519 10:58:29.527060 23487 nccl_context.cc:189] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
+W0519 10:58:31.443238 23487 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 10:58:31.449350 23487 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 10:58:35] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 10:58:35] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 10:58:35,344 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 10:58:35] root INFO: train from scratch
+[2021/05/19 10:58:35] root INFO: train dataloader has 97 iters
+[2021/05/19 10:58:35] root INFO: valid dataloader has 391 iters
+[2021/05/19 10:58:35] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 10:58:35] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+main proc 23487 exit, kill process group 23470
+!!!!!!!!!ok: 0
+[2021/05/19 10:59:17] root INFO: Architecture : 
+[2021/05/19 10:59:17] root INFO:     Backbone : 
+[2021/05/19 10:59:17] root INFO:         model_name : small
+[2021/05/19 10:59:17] root INFO:         name : MobileNetV3
+[2021/05/19 10:59:17] root INFO:         scale : 0.5
+[2021/05/19 10:59:17] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 10:59:17] root INFO:     Head : 
+[2021/05/19 10:59:17] root INFO:         fc_decay : 1e-05
+[2021/05/19 10:59:17] root INFO:         name : CTCHead
+[2021/05/19 10:59:17] root INFO:     Neck : 
+[2021/05/19 10:59:17] root INFO:         encoder_type : rnn
+[2021/05/19 10:59:17] root INFO:         hidden_size : 48
+[2021/05/19 10:59:17] root INFO:         name : SequenceEncoder
+[2021/05/19 10:59:17] root INFO:     Transform : None
+[2021/05/19 10:59:17] root INFO:     algorithm : CRNN
+[2021/05/19 10:59:17] root INFO:     model_type : rec
+[2021/05/19 10:59:17] root INFO: Eval : 
+[2021/05/19 10:59:17] root INFO:     dataset : 
+[2021/05/19 10:59:17] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 10:59:17] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 10:59:17] root INFO:         name : SimpleDataSet
+[2021/05/19 10:59:17] root INFO:         transforms : 
+[2021/05/19 10:59:17] root INFO:             DecodeImage : 
+[2021/05/19 10:59:17] root INFO:                 channel_first : False
+[2021/05/19 10:59:17] root INFO:                 img_mode : BGR
+[2021/05/19 10:59:17] root INFO:             CTCLabelEncode : None
+[2021/05/19 10:59:17] root INFO:             RecResizeImg : 
+[2021/05/19 10:59:17] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 10:59:17] root INFO:             KeepKeys : 
+[2021/05/19 10:59:17] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 10:59:17] root INFO:     loader : 
+[2021/05/19 10:59:17] root INFO:         batch_size_per_card : 256
+[2021/05/19 10:59:17] root INFO:         drop_last : False
+[2021/05/19 10:59:17] root INFO:         num_workers : 8
+[2021/05/19 10:59:17] root INFO:         shuffle : False
+[2021/05/19 10:59:17] root INFO: Global : 
+[2021/05/19 10:59:17] root INFO:     cal_metric_during_train : True
+[2021/05/19 10:59:17] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 10:59:17] root INFO:     character_type : ch
+[2021/05/19 10:59:17] root INFO:     checkpoints : None
+[2021/05/19 10:59:17] root INFO:     debug : False
+[2021/05/19 10:59:17] root INFO:     distributed : True
+[2021/05/19 10:59:17] root INFO:     epoch_num : 500
+[2021/05/19 10:59:17] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 10:59:17] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 10:59:17] root INFO:     infer_mode : False
+[2021/05/19 10:59:17] root INFO:     log_smooth_window : 20
+[2021/05/19 10:59:17] root INFO:     max_text_length : 25
+[2021/05/19 10:59:17] root INFO:     pretrained_model : None
+[2021/05/19 10:59:17] root INFO:     print_batch_step : 10
+[2021/05/19 10:59:17] root INFO:     save_epoch_step : 3
+[2021/05/19 10:59:17] root INFO:     save_inference_dir : None
+[2021/05/19 10:59:17] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 10:59:17] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 10:59:17] root INFO:     use_gpu : True
+[2021/05/19 10:59:17] root INFO:     use_space_char : True
+[2021/05/19 10:59:17] root INFO:     use_visualdl : False
+[2021/05/19 10:59:17] root INFO: Loss : 
+[2021/05/19 10:59:17] root INFO:     name : CTCLoss
+[2021/05/19 10:59:17] root INFO: Metric : 
+[2021/05/19 10:59:17] root INFO:     main_indicator : acc
+[2021/05/19 10:59:17] root INFO:     name : RecMetric
+[2021/05/19 10:59:17] root INFO: Optimizer : 
+[2021/05/19 10:59:17] root INFO:     beta1 : 0.9
+[2021/05/19 10:59:17] root INFO:     beta2 : 0.999
+[2021/05/19 10:59:17] root INFO:     lr : 
+[2021/05/19 10:59:17] root INFO:         learning_rate : 0.001
+[2021/05/19 10:59:17] root INFO:         name : Cosine
+[2021/05/19 10:59:17] root INFO:     name : Adam
+[2021/05/19 10:59:17] root INFO:     regularizer : 
+[2021/05/19 10:59:17] root INFO:         factor : 1e-05
+[2021/05/19 10:59:17] root INFO:         name : L2
+[2021/05/19 10:59:17] root INFO: PostProcess : 
+[2021/05/19 10:59:17] root INFO:     name : CTCLabelDecode
+[2021/05/19 10:59:17] root INFO: Train : 
+[2021/05/19 10:59:17] root INFO:     dataset : 
+[2021/05/19 10:59:17] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 10:59:17] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 10:59:17] root INFO:         name : SimpleDataSet
+[2021/05/19 10:59:17] root INFO:         transforms : 
+[2021/05/19 10:59:17] root INFO:             DecodeImage : 
+[2021/05/19 10:59:17] root INFO:                 channel_first : False
+[2021/05/19 10:59:17] root INFO:                 img_mode : BGR
+[2021/05/19 10:59:17] root INFO:             RecAug : None
+[2021/05/19 10:59:17] root INFO:             CTCLabelEncode : None
+[2021/05/19 10:59:17] root INFO:             RecResizeImg : 
+[2021/05/19 10:59:17] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 10:59:17] root INFO:             KeepKeys : 
+[2021/05/19 10:59:17] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 10:59:17] root INFO:     loader : 
+[2021/05/19 10:59:17] root INFO:         batch_size_per_card : 128
+[2021/05/19 10:59:17] root INFO:         drop_last : True
+[2021/05/19 10:59:17] root INFO:         num_workers : 8
+[2021/05/19 10:59:17] root INFO:         shuffle : True
+[2021/05/19 10:59:17] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+W0519 10:59:17.929654 29076 nccl_context.cc:142] Socket connect worker 127.0.0.1:35138 failed, try again after 3 seconds.
+I0519 10:59:20.930245 29076 nccl_context.cc:189] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
+W0519 10:59:23.921746 29076 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 10:59:23.938252 29076 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 10:59:27] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 10:59:28] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 10:59:28,247 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 10:59:28] root INFO: train from scratch
+[2021/05/19 10:59:28] root INFO: train dataloader has 97 iters
+[2021/05/19 10:59:28] root INFO: valid dataloader has 391 iters
+[2021/05/19 10:59:28] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 10:59:28] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+!!!!!!!!!ok: 0
+[2021/05/19 11:00:57] root INFO: Architecture : 
+[2021/05/19 11:00:57] root INFO:     Backbone : 
+[2021/05/19 11:00:57] root INFO:         model_name : small
+[2021/05/19 11:00:57] root INFO:         name : MobileNetV3
+[2021/05/19 11:00:57] root INFO:         scale : 0.5
+[2021/05/19 11:00:57] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:00:57] root INFO:     Head : 
+[2021/05/19 11:00:57] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:00:57] root INFO:         name : CTCHead
+[2021/05/19 11:00:57] root INFO:     Neck : 
+[2021/05/19 11:00:57] root INFO:         encoder_type : rnn
+[2021/05/19 11:00:57] root INFO:         hidden_size : 48
+[2021/05/19 11:00:57] root INFO:         name : SequenceEncoder
+[2021/05/19 11:00:57] root INFO:     Transform : None
+[2021/05/19 11:00:57] root INFO:     algorithm : CRNN
+[2021/05/19 11:00:57] root INFO:     model_type : rec
+[2021/05/19 11:00:57] root INFO: Eval : 
+[2021/05/19 11:00:57] root INFO:     dataset : 
+[2021/05/19 11:00:57] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:00:57] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:00:57] root INFO:         name : SimpleDataSet
+[2021/05/19 11:00:57] root INFO:         transforms : 
+[2021/05/19 11:00:57] root INFO:             DecodeImage : 
+[2021/05/19 11:00:57] root INFO:                 channel_first : False
+[2021/05/19 11:00:57] root INFO:                 img_mode : BGR
+[2021/05/19 11:00:57] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:00:57] root INFO:             RecResizeImg : 
+[2021/05/19 11:00:57] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:00:57] root INFO:             KeepKeys : 
+[2021/05/19 11:00:57] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:00:57] root INFO:     loader : 
+[2021/05/19 11:00:57] root INFO:         batch_size_per_card : 256
+[2021/05/19 11:00:57] root INFO:         drop_last : False
+[2021/05/19 11:00:57] root INFO:         num_workers : 8
+[2021/05/19 11:00:57] root INFO:         shuffle : False
+[2021/05/19 11:00:57] root INFO: Global : 
+[2021/05/19 11:00:57] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:00:57] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:00:57] root INFO:     character_type : ch
+[2021/05/19 11:00:57] root INFO:     checkpoints : None
+[2021/05/19 11:00:57] root INFO:     debug : False
+[2021/05/19 11:00:57] root INFO:     distributed : True
+[2021/05/19 11:00:57] root INFO:     epoch_num : 500
+[2021/05/19 11:00:57] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:00:57] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:00:57] root INFO:     infer_mode : False
+[2021/05/19 11:00:57] root INFO:     log_smooth_window : 20
+[2021/05/19 11:00:57] root INFO:     max_text_length : 25
+[2021/05/19 11:00:57] root INFO:     pretrained_model : None
+[2021/05/19 11:00:57] root INFO:     print_batch_step : 10
+[2021/05/19 11:00:57] root INFO:     save_epoch_step : 3
+[2021/05/19 11:00:57] root INFO:     save_inference_dir : None
+[2021/05/19 11:00:57] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:00:57] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:00:57] root INFO:     use_gpu : True
+[2021/05/19 11:00:57] root INFO:     use_space_char : True
+[2021/05/19 11:00:57] root INFO:     use_visualdl : False
+[2021/05/19 11:00:57] root INFO: Loss : 
+[2021/05/19 11:00:57] root INFO:     name : CTCLoss
+[2021/05/19 11:00:57] root INFO: Metric : 
+[2021/05/19 11:00:57] root INFO:     main_indicator : acc
+[2021/05/19 11:00:57] root INFO:     name : RecMetric
+[2021/05/19 11:00:57] root INFO: Optimizer : 
+[2021/05/19 11:00:57] root INFO:     beta1 : 0.9
+[2021/05/19 11:00:57] root INFO:     beta2 : 0.999
+[2021/05/19 11:00:57] root INFO:     lr : 
+[2021/05/19 11:00:57] root INFO:         learning_rate : 0.001
+[2021/05/19 11:00:57] root INFO:         name : Cosine
+[2021/05/19 11:00:57] root INFO:     name : Adam
+[2021/05/19 11:00:57] root INFO:     regularizer : 
+[2021/05/19 11:00:57] root INFO:         factor : 1e-05
+[2021/05/19 11:00:57] root INFO:         name : L2
+[2021/05/19 11:00:57] root INFO: PostProcess : 
+[2021/05/19 11:00:57] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:00:57] root INFO: Train : 
+[2021/05/19 11:00:57] root INFO:     dataset : 
+[2021/05/19 11:00:57] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:00:57] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:00:57] root INFO:         name : SimpleDataSet
+[2021/05/19 11:00:57] root INFO:         transforms : 
+[2021/05/19 11:00:57] root INFO:             DecodeImage : 
+[2021/05/19 11:00:57] root INFO:                 channel_first : False
+[2021/05/19 11:00:57] root INFO:                 img_mode : BGR
+[2021/05/19 11:00:57] root INFO:             RecAug : None
+[2021/05/19 11:00:57] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:00:57] root INFO:             RecResizeImg : 
+[2021/05/19 11:00:57] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:00:57] root INFO:             KeepKeys : 
+[2021/05/19 11:00:57] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:00:57] root INFO:     loader : 
+[2021/05/19 11:00:57] root INFO:         batch_size_per_card : 128
+[2021/05/19 11:00:57] root INFO:         drop_last : True
+[2021/05/19 11:00:57] root INFO:         num_workers : 8
+[2021/05/19 11:00:57] root INFO:         shuffle : True
+[2021/05/19 11:00:57] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+W0519 11:00:57.343595 35788 nccl_context.cc:142] Socket connect worker 127.0.0.1:42022 failed, try again after 3 seconds.
+I0519 11:01:00.344048 35788 nccl_context.cc:189] init nccl context nranks: 5 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:01:01.620591 35788 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:01:01.626483 35788 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+!!!!!!!!!ok: 0
+[2021/05/19 11:01:45] root INFO: Architecture : 
+[2021/05/19 11:01:45] root INFO:     Backbone : 
+[2021/05/19 11:01:45] root INFO:         model_name : small
+[2021/05/19 11:01:45] root INFO:         name : MobileNetV3
+[2021/05/19 11:01:45] root INFO:         scale : 0.5
+[2021/05/19 11:01:45] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:01:45] root INFO:     Head : 
+[2021/05/19 11:01:45] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:01:45] root INFO:         name : CTCHead
+[2021/05/19 11:01:45] root INFO:     Neck : 
+[2021/05/19 11:01:45] root INFO:         encoder_type : rnn
+[2021/05/19 11:01:45] root INFO:         hidden_size : 48
+[2021/05/19 11:01:45] root INFO:         name : SequenceEncoder
+[2021/05/19 11:01:45] root INFO:     Transform : None
+[2021/05/19 11:01:45] root INFO:     algorithm : CRNN
+[2021/05/19 11:01:45] root INFO:     model_type : rec
+[2021/05/19 11:01:45] root INFO: Eval : 
+[2021/05/19 11:01:45] root INFO:     dataset : 
+[2021/05/19 11:01:45] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:01:45] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:01:45] root INFO:         name : SimpleDataSet
+[2021/05/19 11:01:45] root INFO:         transforms : 
+[2021/05/19 11:01:45] root INFO:             DecodeImage : 
+[2021/05/19 11:01:45] root INFO:                 channel_first : False
+[2021/05/19 11:01:45] root INFO:                 img_mode : BGR
+[2021/05/19 11:01:45] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:01:45] root INFO:             RecResizeImg : 
+[2021/05/19 11:01:45] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:01:45] root INFO:             KeepKeys : 
+[2021/05/19 11:01:45] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:01:45] root INFO:     loader : 
+[2021/05/19 11:01:45] root INFO:         batch_size_per_card : 256
+[2021/05/19 11:01:45] root INFO:         drop_last : False
+[2021/05/19 11:01:45] root INFO:         num_workers : 8
+[2021/05/19 11:01:45] root INFO:         shuffle : False
+[2021/05/19 11:01:45] root INFO: Global : 
+[2021/05/19 11:01:45] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:01:45] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:01:45] root INFO:     character_type : ch
+[2021/05/19 11:01:45] root INFO:     checkpoints : None
+[2021/05/19 11:01:45] root INFO:     debug : False
+[2021/05/19 11:01:45] root INFO:     distributed : True
+[2021/05/19 11:01:45] root INFO:     epoch_num : 500
+[2021/05/19 11:01:45] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:01:45] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:01:45] root INFO:     infer_mode : False
+[2021/05/19 11:01:45] root INFO:     log_smooth_window : 20
+[2021/05/19 11:01:45] root INFO:     max_text_length : 25
+[2021/05/19 11:01:45] root INFO:     pretrained_model : None
+[2021/05/19 11:01:45] root INFO:     print_batch_step : 10
+[2021/05/19 11:01:45] root INFO:     save_epoch_step : 3
+[2021/05/19 11:01:45] root INFO:     save_inference_dir : None
+[2021/05/19 11:01:45] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:01:45] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:01:45] root INFO:     use_gpu : True
+[2021/05/19 11:01:45] root INFO:     use_space_char : True
+[2021/05/19 11:01:45] root INFO:     use_visualdl : False
+[2021/05/19 11:01:45] root INFO: Loss : 
+[2021/05/19 11:01:45] root INFO:     name : CTCLoss
+[2021/05/19 11:01:45] root INFO: Metric : 
+[2021/05/19 11:01:45] root INFO:     main_indicator : acc
+[2021/05/19 11:01:45] root INFO:     name : RecMetric
+[2021/05/19 11:01:45] root INFO: Optimizer : 
+[2021/05/19 11:01:45] root INFO:     beta1 : 0.9
+[2021/05/19 11:01:45] root INFO:     beta2 : 0.999
+[2021/05/19 11:01:45] root INFO:     lr : 
+[2021/05/19 11:01:45] root INFO:         learning_rate : 0.001
+[2021/05/19 11:01:45] root INFO:         name : Cosine
+[2021/05/19 11:01:45] root INFO:     name : Adam
+[2021/05/19 11:01:45] root INFO:     regularizer : 
+[2021/05/19 11:01:45] root INFO:         factor : 1e-05
+[2021/05/19 11:01:45] root INFO:         name : L2
+[2021/05/19 11:01:45] root INFO: PostProcess : 
+[2021/05/19 11:01:45] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:01:45] root INFO: Train : 
+[2021/05/19 11:01:45] root INFO:     dataset : 
+[2021/05/19 11:01:45] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:01:45] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:01:45] root INFO:         name : SimpleDataSet
+[2021/05/19 11:01:45] root INFO:         transforms : 
+[2021/05/19 11:01:45] root INFO:             DecodeImage : 
+[2021/05/19 11:01:45] root INFO:                 channel_first : False
+[2021/05/19 11:01:45] root INFO:                 img_mode : BGR
+[2021/05/19 11:01:45] root INFO:             RecAug : None
+[2021/05/19 11:01:45] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:01:45] root INFO:             RecResizeImg : 
+[2021/05/19 11:01:45] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:01:45] root INFO:             KeepKeys : 
+[2021/05/19 11:01:45] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:01:45] root INFO:     loader : 
+[2021/05/19 11:01:45] root INFO:         batch_size_per_card : 128
+[2021/05/19 11:01:45] root INFO:         drop_last : True
+[2021/05/19 11:01:45] root INFO:         num_workers : 8
+[2021/05/19 11:01:45] root INFO:         shuffle : True
+[2021/05/19 11:01:45] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0519 11:01:45.700860 38028 nccl_context.cc:189] init nccl context nranks: 4 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:01:46.726557 38028 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:01:46.739869 38028 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:01:54] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:01:55] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:01:55,531 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:01:55] root INFO: train from scratch
+[2021/05/19 11:01:55] root INFO: train dataloader has 195 iters
+[2021/05/19 11:01:55] root INFO: valid dataloader has 391 iters
+[2021/05/19 11:01:55] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:01:55] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+!!!!!!!!!ok: 0
+[2021/05/19 11:08:22] root INFO: Architecture : 
+[2021/05/19 11:08:22] root INFO:     Backbone : 
+[2021/05/19 11:08:22] root INFO:         model_name : small
+[2021/05/19 11:08:22] root INFO:         name : MobileNetV3
+[2021/05/19 11:08:22] root INFO:         scale : 0.5
+[2021/05/19 11:08:22] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:08:22] root INFO:     Head : 
+[2021/05/19 11:08:22] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:08:22] root INFO:         name : CTCHead
+[2021/05/19 11:08:22] root INFO:     Neck : 
+[2021/05/19 11:08:22] root INFO:         encoder_type : rnn
+[2021/05/19 11:08:22] root INFO:         hidden_size : 48
+[2021/05/19 11:08:22] root INFO:         name : SequenceEncoder
+[2021/05/19 11:08:22] root INFO:     Transform : None
+[2021/05/19 11:08:22] root INFO:     algorithm : CRNN
+[2021/05/19 11:08:22] root INFO:     model_type : rec
+[2021/05/19 11:08:22] root INFO: Eval : 
+[2021/05/19 11:08:22] root INFO:     dataset : 
+[2021/05/19 11:08:22] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:08:22] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:08:22] root INFO:         name : SimpleDataSet
+[2021/05/19 11:08:22] root INFO:         transforms : 
+[2021/05/19 11:08:22] root INFO:             DecodeImage : 
+[2021/05/19 11:08:22] root INFO:                 channel_first : False
+[2021/05/19 11:08:22] root INFO:                 img_mode : BGR
+[2021/05/19 11:08:22] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:08:22] root INFO:             RecResizeImg : 
+[2021/05/19 11:08:22] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:08:22] root INFO:             KeepKeys : 
+[2021/05/19 11:08:22] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:08:22] root INFO:     loader : 
+[2021/05/19 11:08:22] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:08:22] root INFO:         drop_last : False
+[2021/05/19 11:08:22] root INFO:         num_workers : 8
+[2021/05/19 11:08:22] root INFO:         shuffle : False
+[2021/05/19 11:08:22] root INFO: Global : 
+[2021/05/19 11:08:22] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:08:22] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:08:22] root INFO:     character_type : ch
+[2021/05/19 11:08:22] root INFO:     checkpoints : None
+[2021/05/19 11:08:22] root INFO:     debug : False
+[2021/05/19 11:08:22] root INFO:     distributed : True
+[2021/05/19 11:08:22] root INFO:     epoch_num : 500
+[2021/05/19 11:08:22] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:08:22] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:08:22] root INFO:     infer_mode : False
+[2021/05/19 11:08:22] root INFO:     log_smooth_window : 20
+[2021/05/19 11:08:22] root INFO:     max_text_length : 25
+[2021/05/19 11:08:22] root INFO:     pretrained_model : None
+[2021/05/19 11:08:22] root INFO:     print_batch_step : 10
+[2021/05/19 11:08:22] root INFO:     save_epoch_step : 3
+[2021/05/19 11:08:22] root INFO:     save_inference_dir : None
+[2021/05/19 11:08:22] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:08:22] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:08:22] root INFO:     use_gpu : True
+[2021/05/19 11:08:22] root INFO:     use_space_char : True
+[2021/05/19 11:08:22] root INFO:     use_visualdl : False
+[2021/05/19 11:08:22] root INFO: Loss : 
+[2021/05/19 11:08:22] root INFO:     name : CTCLoss
+[2021/05/19 11:08:22] root INFO: Metric : 
+[2021/05/19 11:08:22] root INFO:     main_indicator : acc
+[2021/05/19 11:08:22] root INFO:     name : RecMetric
+[2021/05/19 11:08:22] root INFO: Optimizer : 
+[2021/05/19 11:08:22] root INFO:     beta1 : 0.9
+[2021/05/19 11:08:22] root INFO:     beta2 : 0.999
+[2021/05/19 11:08:22] root INFO:     lr : 
+[2021/05/19 11:08:22] root INFO:         learning_rate : 0.001
+[2021/05/19 11:08:22] root INFO:         name : Cosine
+[2021/05/19 11:08:22] root INFO:     name : Adam
+[2021/05/19 11:08:22] root INFO:     regularizer : 
+[2021/05/19 11:08:22] root INFO:         factor : 1e-05
+[2021/05/19 11:08:22] root INFO:         name : L2
+[2021/05/19 11:08:22] root INFO: PostProcess : 
+[2021/05/19 11:08:22] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:08:22] root INFO: Train : 
+[2021/05/19 11:08:22] root INFO:     dataset : 
+[2021/05/19 11:08:22] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:08:22] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:08:22] root INFO:         name : SimpleDataSet
+[2021/05/19 11:08:22] root INFO:         transforms : 
+[2021/05/19 11:08:22] root INFO:             DecodeImage : 
+[2021/05/19 11:08:22] root INFO:                 channel_first : False
+[2021/05/19 11:08:22] root INFO:                 img_mode : BGR
+[2021/05/19 11:08:22] root INFO:             RecAug : None
+[2021/05/19 11:08:22] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:08:22] root INFO:             RecResizeImg : 
+[2021/05/19 11:08:22] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:08:22] root INFO:             KeepKeys : 
+[2021/05/19 11:08:22] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:08:22] root INFO:     loader : 
+[2021/05/19 11:08:22] root INFO:         batch_size_per_card : 128
+[2021/05/19 11:08:22] root INFO:         drop_last : True
+[2021/05/19 11:08:22] root INFO:         num_workers : 8
+[2021/05/19 11:08:22] root INFO:         shuffle : True
+[2021/05/19 11:08:22] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+W0519 11:08:22.026233 48965 nccl_context.cc:142] Socket connect worker 127.0.0.1:42802 failed, try again after 3 seconds.
+I0519 11:08:25.026726 48965 nccl_context.cc:189] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:08:26.930040 48965 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:08:26.948127 48965 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:08:31] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:08:31] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:08:31,541 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:08:31] root INFO: train from scratch
+[2021/05/19 11:08:31] root INFO: train dataloader has 97 iters
+[2021/05/19 11:08:31] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:08:31] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:08:31] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+!!!!!!!!!ok: 0
+[2021/05/19 11:09:30] root INFO: Architecture : 
+[2021/05/19 11:09:30] root INFO:     Backbone : 
+[2021/05/19 11:09:30] root INFO:         model_name : small
+[2021/05/19 11:09:30] root INFO:         name : MobileNetV3
+[2021/05/19 11:09:30] root INFO:         scale : 0.5
+[2021/05/19 11:09:30] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:09:30] root INFO:     Head : 
+[2021/05/19 11:09:30] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:09:30] root INFO:         name : CTCHead
+[2021/05/19 11:09:30] root INFO:     Neck : 
+[2021/05/19 11:09:30] root INFO:         encoder_type : rnn
+[2021/05/19 11:09:30] root INFO:         hidden_size : 48
+[2021/05/19 11:09:30] root INFO:         name : SequenceEncoder
+[2021/05/19 11:09:30] root INFO:     Transform : None
+[2021/05/19 11:09:30] root INFO:     algorithm : CRNN
+[2021/05/19 11:09:30] root INFO:     model_type : rec
+[2021/05/19 11:09:30] root INFO: Eval : 
+[2021/05/19 11:09:30] root INFO:     dataset : 
+[2021/05/19 11:09:30] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:09:30] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:09:30] root INFO:         name : SimpleDataSet
+[2021/05/19 11:09:30] root INFO:         transforms : 
+[2021/05/19 11:09:30] root INFO:             DecodeImage : 
+[2021/05/19 11:09:30] root INFO:                 channel_first : False
+[2021/05/19 11:09:30] root INFO:                 img_mode : BGR
+[2021/05/19 11:09:30] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:09:30] root INFO:             RecResizeImg : 
+[2021/05/19 11:09:30] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:09:30] root INFO:             KeepKeys : 
+[2021/05/19 11:09:30] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:09:30] root INFO:     loader : 
+[2021/05/19 11:09:30] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:09:30] root INFO:         drop_last : False
+[2021/05/19 11:09:30] root INFO:         num_workers : 8
+[2021/05/19 11:09:30] root INFO:         shuffle : False
+[2021/05/19 11:09:30] root INFO: Global : 
+[2021/05/19 11:09:30] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:09:30] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:09:30] root INFO:     character_type : ch
+[2021/05/19 11:09:30] root INFO:     checkpoints : None
+[2021/05/19 11:09:30] root INFO:     debug : False
+[2021/05/19 11:09:30] root INFO:     distributed : True
+[2021/05/19 11:09:30] root INFO:     epoch_num : 500
+[2021/05/19 11:09:30] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:09:30] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:09:30] root INFO:     infer_mode : False
+[2021/05/19 11:09:30] root INFO:     log_smooth_window : 20
+[2021/05/19 11:09:30] root INFO:     max_text_length : 25
+[2021/05/19 11:09:30] root INFO:     pretrained_model : None
+[2021/05/19 11:09:30] root INFO:     print_batch_step : 10
+[2021/05/19 11:09:30] root INFO:     save_epoch_step : 3
+[2021/05/19 11:09:30] root INFO:     save_inference_dir : None
+[2021/05/19 11:09:30] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:09:30] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:09:30] root INFO:     use_gpu : True
+[2021/05/19 11:09:30] root INFO:     use_space_char : True
+[2021/05/19 11:09:30] root INFO:     use_visualdl : False
+[2021/05/19 11:09:30] root INFO: Loss : 
+[2021/05/19 11:09:30] root INFO:     name : CTCLoss
+[2021/05/19 11:09:30] root INFO: Metric : 
+[2021/05/19 11:09:30] root INFO:     main_indicator : acc
+[2021/05/19 11:09:30] root INFO:     name : RecMetric
+[2021/05/19 11:09:30] root INFO: Optimizer : 
+[2021/05/19 11:09:30] root INFO:     beta1 : 0.9
+[2021/05/19 11:09:30] root INFO:     beta2 : 0.999
+[2021/05/19 11:09:30] root INFO:     lr : 
+[2021/05/19 11:09:30] root INFO:         learning_rate : 0.001
+[2021/05/19 11:09:30] root INFO:         name : Cosine
+[2021/05/19 11:09:30] root INFO:     name : Adam
+[2021/05/19 11:09:30] root INFO:     regularizer : 
+[2021/05/19 11:09:30] root INFO:         factor : 1e-05
+[2021/05/19 11:09:30] root INFO:         name : L2
+[2021/05/19 11:09:30] root INFO: PostProcess : 
+[2021/05/19 11:09:30] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:09:30] root INFO: Train : 
+[2021/05/19 11:09:30] root INFO:     dataset : 
+[2021/05/19 11:09:30] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:09:30] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:09:30] root INFO:         name : SimpleDataSet
+[2021/05/19 11:09:30] root INFO:         transforms : 
+[2021/05/19 11:09:30] root INFO:             DecodeImage : 
+[2021/05/19 11:09:30] root INFO:                 channel_first : False
+[2021/05/19 11:09:30] root INFO:                 img_mode : BGR
+[2021/05/19 11:09:30] root INFO:             RecAug : None
+[2021/05/19 11:09:30] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:09:30] root INFO:             RecResizeImg : 
+[2021/05/19 11:09:30] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:09:30] root INFO:             KeepKeys : 
+[2021/05/19 11:09:30] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:09:30] root INFO:     loader : 
+[2021/05/19 11:09:30] root INFO:         batch_size_per_card : 128
+[2021/05/19 11:09:30] root INFO:         drop_last : True
+[2021/05/19 11:09:30] root INFO:         num_workers : 8
+[2021/05/19 11:09:30] root INFO:         shuffle : True
+[2021/05/19 11:09:30] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+W0519 11:09:30.586992 54927 nccl_context.cc:142] Socket connect worker 127.0.0.1:46737 failed, try again after 3 seconds.
+I0519 11:09:33.587435 54927 nccl_context.cc:189] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:09:35.318296 54927 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:09:35.324304 54927 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:09:39] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:09:39] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:09:39,833 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:09:39] root INFO: train from scratch
+[2021/05/19 11:09:39] root INFO: train dataloader has 97 iters
+[2021/05/19 11:09:39] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:09:39] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:09:39] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+W0519 11:09:46.580909 56466 system_allocator.cc:204] cudaHostAlloc failed.
+W0519 11:09:46.603788 56466 naive_best_fit_allocator.cc:379] cudaHostAlloc Cannot allocate 15728640 bytes in CUDAPinnedPlace
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+0   std::thread::_State_impl<std::thread::_Invoker<std::tuple<ThreadPool::ThreadPool(unsigned long)::{lambda()#1}> > >::_M_run()
+1   std::__future_base::_State_baseV2::_M_do_set(std::function<std::unique_ptr<std::__future_base::_Result_base, std::__future_base::_Result_base::_Deleter> ()>*, bool*)
+2   paddle::framework::SignalHandle(char const*, int)
+3   paddle::platform::GetCurrentTraceBackString[abi:cxx11]()
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Segmentation fault` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1621422586 (unix time) try "date -d @1621422586" if you are using GNU date ***]
+  [SignalInfo: *** SIGSEGV (@0x20) received by PID 54927 (TID 0x7f434bfff700) from PID 32 ***]
+
+!!!!!!!!!ok: 0
+[2021/05/19 11:12:09] root INFO: Architecture : 
+[2021/05/19 11:12:09] root INFO:     Backbone : 
+[2021/05/19 11:12:09] root INFO:         model_name : small
+[2021/05/19 11:12:09] root INFO:         name : MobileNetV3
+[2021/05/19 11:12:09] root INFO:         scale : 0.5
+[2021/05/19 11:12:09] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:12:09] root INFO:     Head : 
+[2021/05/19 11:12:09] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:12:09] root INFO:         name : CTCHead
+[2021/05/19 11:12:09] root INFO:     Neck : 
+[2021/05/19 11:12:09] root INFO:         encoder_type : rnn
+[2021/05/19 11:12:09] root INFO:         hidden_size : 48
+[2021/05/19 11:12:09] root INFO:         name : SequenceEncoder
+[2021/05/19 11:12:09] root INFO:     Transform : None
+[2021/05/19 11:12:09] root INFO:     algorithm : CRNN
+[2021/05/19 11:12:09] root INFO:     model_type : rec
+[2021/05/19 11:12:09] root INFO: Eval : 
+[2021/05/19 11:12:09] root INFO:     dataset : 
+[2021/05/19 11:12:09] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:12:09] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:12:09] root INFO:         name : SimpleDataSet
+[2021/05/19 11:12:09] root INFO:         transforms : 
+[2021/05/19 11:12:09] root INFO:             DecodeImage : 
+[2021/05/19 11:12:09] root INFO:                 channel_first : False
+[2021/05/19 11:12:09] root INFO:                 img_mode : BGR
+[2021/05/19 11:12:09] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:12:09] root INFO:             RecResizeImg : 
+[2021/05/19 11:12:09] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:12:09] root INFO:             KeepKeys : 
+[2021/05/19 11:12:09] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:12:09] root INFO:     loader : 
+[2021/05/19 11:12:09] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:12:09] root INFO:         drop_last : False
+[2021/05/19 11:12:09] root INFO:         num_workers : 8
+[2021/05/19 11:12:09] root INFO:         shuffle : False
+[2021/05/19 11:12:09] root INFO: Global : 
+[2021/05/19 11:12:09] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:12:09] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:12:09] root INFO:     character_type : ch
+[2021/05/19 11:12:09] root INFO:     checkpoints : None
+[2021/05/19 11:12:09] root INFO:     debug : False
+[2021/05/19 11:12:09] root INFO:     distributed : True
+[2021/05/19 11:12:09] root INFO:     epoch_num : 500
+[2021/05/19 11:12:09] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:12:09] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:12:09] root INFO:     infer_mode : False
+[2021/05/19 11:12:09] root INFO:     log_smooth_window : 20
+[2021/05/19 11:12:09] root INFO:     max_text_length : 25
+[2021/05/19 11:12:09] root INFO:     pretrained_model : None
+[2021/05/19 11:12:09] root INFO:     print_batch_step : 10
+[2021/05/19 11:12:09] root INFO:     save_epoch_step : 3
+[2021/05/19 11:12:09] root INFO:     save_inference_dir : None
+[2021/05/19 11:12:09] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:12:09] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:12:09] root INFO:     use_gpu : True
+[2021/05/19 11:12:09] root INFO:     use_space_char : True
+[2021/05/19 11:12:09] root INFO:     use_visualdl : False
+[2021/05/19 11:12:09] root INFO: Loss : 
+[2021/05/19 11:12:09] root INFO:     name : CTCLoss
+[2021/05/19 11:12:09] root INFO: Metric : 
+[2021/05/19 11:12:09] root INFO:     main_indicator : acc
+[2021/05/19 11:12:09] root INFO:     name : RecMetric
+[2021/05/19 11:12:09] root INFO: Optimizer : 
+[2021/05/19 11:12:09] root INFO:     beta1 : 0.9
+[2021/05/19 11:12:09] root INFO:     beta2 : 0.999
+[2021/05/19 11:12:09] root INFO:     lr : 
+[2021/05/19 11:12:09] root INFO:         learning_rate : 0.001
+[2021/05/19 11:12:09] root INFO:         name : Cosine
+[2021/05/19 11:12:09] root INFO:     name : Adam
+[2021/05/19 11:12:09] root INFO:     regularizer : 
+[2021/05/19 11:12:09] root INFO:         factor : 1e-05
+[2021/05/19 11:12:09] root INFO:         name : L2
+[2021/05/19 11:12:09] root INFO: PostProcess : 
+[2021/05/19 11:12:09] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:12:09] root INFO: Train : 
+[2021/05/19 11:12:09] root INFO:     dataset : 
+[2021/05/19 11:12:09] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:12:09] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:12:09] root INFO:         name : SimpleDataSet
+[2021/05/19 11:12:09] root INFO:         transforms : 
+[2021/05/19 11:12:09] root INFO:             DecodeImage : 
+[2021/05/19 11:12:09] root INFO:                 channel_first : False
+[2021/05/19 11:12:09] root INFO:                 img_mode : BGR
+[2021/05/19 11:12:09] root INFO:             RecAug : None
+[2021/05/19 11:12:09] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:12:09] root INFO:             RecResizeImg : 
+[2021/05/19 11:12:09] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:12:09] root INFO:             KeepKeys : 
+[2021/05/19 11:12:09] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:12:09] root INFO:     loader : 
+[2021/05/19 11:12:09] root INFO:         batch_size_per_card : 128
+[2021/05/19 11:12:09] root INFO:         drop_last : True
+[2021/05/19 11:12:09] root INFO:         num_workers : 8
+[2021/05/19 11:12:09] root INFO:         shuffle : True
+[2021/05/19 11:12:09] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0519 11:12:09.603893 62767 nccl_context.cc:189] init nccl context nranks: 4 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:12:10.697528 62767 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:12:10.719588 62767 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:12:14] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:12:14] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:12:14,615 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:12:14] root INFO: train from scratch
+[2021/05/19 11:12:14] root INFO: train dataloader has 195 iters
+[2021/05/19 11:12:14] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:12:14] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:12:14] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:12:34] root INFO: epoch: [1/500], iter: 10, lr: 0.001000, loss: 612.433411, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.26097 s, batch_cost: 1.02958 s, samples: 1408, ips: 136.75526
+[2021/05/19 11:12:48] root INFO: epoch: [1/500], iter: 20, lr: 0.001000, loss: 489.114929, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00098 s, batch_cost: 0.45866 s, samples: 1280, ips: 279.07614
+main proc 63244 exit, kill process group 62750
+main proc 63239 exit, kill process group 62750
+main proc 63251 exit, kill process group 62750
+!!!!!!!!!ok: 0
+[2021/05/19 11:13:03] root INFO: Architecture : 
+[2021/05/19 11:13:03] root INFO:     Backbone : 
+[2021/05/19 11:13:03] root INFO:         model_name : small
+[2021/05/19 11:13:03] root INFO:         name : MobileNetV3
+[2021/05/19 11:13:03] root INFO:         scale : 0.5
+[2021/05/19 11:13:03] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:13:03] root INFO:     Head : 
+[2021/05/19 11:13:03] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:13:03] root INFO:         name : CTCHead
+[2021/05/19 11:13:03] root INFO:     Neck : 
+[2021/05/19 11:13:03] root INFO:         encoder_type : rnn
+[2021/05/19 11:13:03] root INFO:         hidden_size : 48
+[2021/05/19 11:13:03] root INFO:         name : SequenceEncoder
+[2021/05/19 11:13:03] root INFO:     Transform : None
+[2021/05/19 11:13:03] root INFO:     algorithm : CRNN
+[2021/05/19 11:13:03] root INFO:     model_type : rec
+[2021/05/19 11:13:03] root INFO: Eval : 
+[2021/05/19 11:13:03] root INFO:     dataset : 
+[2021/05/19 11:13:03] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:13:03] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:13:03] root INFO:         name : SimpleDataSet
+[2021/05/19 11:13:03] root INFO:         transforms : 
+[2021/05/19 11:13:03] root INFO:             DecodeImage : 
+[2021/05/19 11:13:03] root INFO:                 channel_first : False
+[2021/05/19 11:13:03] root INFO:                 img_mode : BGR
+[2021/05/19 11:13:03] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:13:03] root INFO:             RecResizeImg : 
+[2021/05/19 11:13:03] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:13:03] root INFO:             KeepKeys : 
+[2021/05/19 11:13:03] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:13:03] root INFO:     loader : 
+[2021/05/19 11:13:03] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:13:03] root INFO:         drop_last : False
+[2021/05/19 11:13:03] root INFO:         num_workers : 8
+[2021/05/19 11:13:03] root INFO:         shuffle : False
+[2021/05/19 11:13:03] root INFO: Global : 
+[2021/05/19 11:13:03] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:13:03] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:13:03] root INFO:     character_type : ch
+[2021/05/19 11:13:03] root INFO:     checkpoints : None
+[2021/05/19 11:13:03] root INFO:     debug : False
+[2021/05/19 11:13:03] root INFO:     distributed : True
+[2021/05/19 11:13:03] root INFO:     epoch_num : 500
+[2021/05/19 11:13:03] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:13:03] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:13:03] root INFO:     infer_mode : False
+[2021/05/19 11:13:03] root INFO:     log_smooth_window : 20
+[2021/05/19 11:13:03] root INFO:     max_text_length : 25
+[2021/05/19 11:13:03] root INFO:     pretrained_model : None
+[2021/05/19 11:13:03] root INFO:     print_batch_step : 10
+[2021/05/19 11:13:03] root INFO:     save_epoch_step : 3
+[2021/05/19 11:13:03] root INFO:     save_inference_dir : None
+[2021/05/19 11:13:03] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:13:03] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:13:03] root INFO:     use_gpu : True
+[2021/05/19 11:13:03] root INFO:     use_space_char : True
+[2021/05/19 11:13:03] root INFO:     use_visualdl : False
+[2021/05/19 11:13:03] root INFO: Loss : 
+[2021/05/19 11:13:03] root INFO:     name : CTCLoss
+[2021/05/19 11:13:03] root INFO: Metric : 
+[2021/05/19 11:13:03] root INFO:     main_indicator : acc
+[2021/05/19 11:13:03] root INFO:     name : RecMetric
+[2021/05/19 11:13:03] root INFO: Optimizer : 
+[2021/05/19 11:13:03] root INFO:     beta1 : 0.9
+[2021/05/19 11:13:03] root INFO:     beta2 : 0.999
+[2021/05/19 11:13:03] root INFO:     lr : 
+[2021/05/19 11:13:03] root INFO:         learning_rate : 0.001
+[2021/05/19 11:13:03] root INFO:         name : Cosine
+[2021/05/19 11:13:03] root INFO:     name : Adam
+[2021/05/19 11:13:03] root INFO:     regularizer : 
+[2021/05/19 11:13:03] root INFO:         factor : 1e-05
+[2021/05/19 11:13:03] root INFO:         name : L2
+[2021/05/19 11:13:03] root INFO: PostProcess : 
+[2021/05/19 11:13:03] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:13:03] root INFO: Train : 
+[2021/05/19 11:13:03] root INFO:     dataset : 
+[2021/05/19 11:13:03] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:13:03] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:13:03] root INFO:         name : SimpleDataSet
+[2021/05/19 11:13:03] root INFO:         transforms : 
+[2021/05/19 11:13:03] root INFO:             DecodeImage : 
+[2021/05/19 11:13:03] root INFO:                 channel_first : False
+[2021/05/19 11:13:03] root INFO:                 img_mode : BGR
+[2021/05/19 11:13:03] root INFO:             RecAug : None
+[2021/05/19 11:13:03] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:13:03] root INFO:             RecResizeImg : 
+[2021/05/19 11:13:03] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:13:03] root INFO:             KeepKeys : 
+[2021/05/19 11:13:03] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:13:03] root INFO:     loader : 
+[2021/05/19 11:13:03] root INFO:         batch_size_per_card : 128
+[2021/05/19 11:13:03] root INFO:         drop_last : True
+[2021/05/19 11:13:03] root INFO:         num_workers : 8
+[2021/05/19 11:13:03] root INFO:         shuffle : True
+[2021/05/19 11:13:03] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+W0519 11:13:03.666174 66333 nccl_context.cc:142] Socket connect worker 127.0.0.1:41845 failed, try again after 3 seconds.
+I0519 11:13:06.666604 66333 nccl_context.cc:189] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:13:08.296725 66333 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:13:08.320302 66333 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:13:12] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:13:12] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:13:12,706 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:13:12] root INFO: train from scratch
+[2021/05/19 11:13:12] root INFO: train dataloader has 97 iters
+[2021/05/19 11:13:12] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:13:12] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:13:12] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+Traceback (most recent call last):
+  File "tools/train.py", line 27, in <module>
+    import paddle
+  File "/opt/conda/lib/python3.6/site-packages/paddle/__init__.py", line 286, in <module>
+    disable_static()
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/dygraph/base.py", line 156, in enable_dygraph
+    _functional_dygraph_context_manager.__enter__()
+  File "/opt/conda/lib/python3.6/contextlib.py", line 81, in __enter__
+    return next(self.gen)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/dygraph/base.py", line 381, in guard
+    expected_place = framework._current_expected_place()
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/framework.py", line 292, in _current_expected_place
+    device_count = core.get_cuda_device_count()
+KeyboardInterrupt
+!!!!!!!!!ok: 0
+[2021/05/19 11:13:49] root INFO: Architecture : 
+[2021/05/19 11:13:49] root INFO:     Backbone : 
+[2021/05/19 11:13:49] root INFO:         model_name : small
+[2021/05/19 11:13:49] root INFO:         name : MobileNetV3
+[2021/05/19 11:13:49] root INFO:         scale : 0.5
+[2021/05/19 11:13:49] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:13:49] root INFO:     Head : 
+[2021/05/19 11:13:49] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:13:49] root INFO:         name : CTCHead
+[2021/05/19 11:13:49] root INFO:     Neck : 
+[2021/05/19 11:13:49] root INFO:         encoder_type : rnn
+[2021/05/19 11:13:49] root INFO:         hidden_size : 48
+[2021/05/19 11:13:49] root INFO:         name : SequenceEncoder
+[2021/05/19 11:13:49] root INFO:     Transform : None
+[2021/05/19 11:13:49] root INFO:     algorithm : CRNN
+[2021/05/19 11:13:49] root INFO:     model_type : rec
+[2021/05/19 11:13:49] root INFO: Eval : 
+[2021/05/19 11:13:49] root INFO:     dataset : 
+[2021/05/19 11:13:49] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:13:49] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:13:49] root INFO:         name : SimpleDataSet
+[2021/05/19 11:13:49] root INFO:         transforms : 
+[2021/05/19 11:13:49] root INFO:             DecodeImage : 
+[2021/05/19 11:13:49] root INFO:                 channel_first : False
+[2021/05/19 11:13:49] root INFO:                 img_mode : BGR
+[2021/05/19 11:13:49] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:13:49] root INFO:             RecResizeImg : 
+[2021/05/19 11:13:49] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:13:49] root INFO:             KeepKeys : 
+[2021/05/19 11:13:49] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:13:49] root INFO:     loader : 
+[2021/05/19 11:13:49] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:13:49] root INFO:         drop_last : False
+[2021/05/19 11:13:49] root INFO:         num_workers : 8
+[2021/05/19 11:13:49] root INFO:         shuffle : False
+[2021/05/19 11:13:49] root INFO: Global : 
+[2021/05/19 11:13:49] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:13:49] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:13:49] root INFO:     character_type : ch
+[2021/05/19 11:13:49] root INFO:     checkpoints : None
+[2021/05/19 11:13:49] root INFO:     debug : False
+[2021/05/19 11:13:49] root INFO:     distributed : True
+[2021/05/19 11:13:49] root INFO:     epoch_num : 500
+[2021/05/19 11:13:49] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:13:49] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:13:49] root INFO:     infer_mode : False
+[2021/05/19 11:13:49] root INFO:     log_smooth_window : 20
+[2021/05/19 11:13:49] root INFO:     max_text_length : 25
+[2021/05/19 11:13:49] root INFO:     pretrained_model : None
+[2021/05/19 11:13:49] root INFO:     print_batch_step : 10
+[2021/05/19 11:13:49] root INFO:     save_epoch_step : 3
+[2021/05/19 11:13:49] root INFO:     save_inference_dir : None
+[2021/05/19 11:13:49] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:13:49] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:13:49] root INFO:     use_gpu : True
+[2021/05/19 11:13:49] root INFO:     use_space_char : True
+[2021/05/19 11:13:49] root INFO:     use_visualdl : False
+[2021/05/19 11:13:49] root INFO: Loss : 
+[2021/05/19 11:13:49] root INFO:     name : CTCLoss
+[2021/05/19 11:13:49] root INFO: Metric : 
+[2021/05/19 11:13:49] root INFO:     main_indicator : acc
+[2021/05/19 11:13:49] root INFO:     name : RecMetric
+[2021/05/19 11:13:49] root INFO: Optimizer : 
+[2021/05/19 11:13:49] root INFO:     beta1 : 0.9
+[2021/05/19 11:13:49] root INFO:     beta2 : 0.999
+[2021/05/19 11:13:49] root INFO:     lr : 
+[2021/05/19 11:13:49] root INFO:         learning_rate : 0.001
+[2021/05/19 11:13:49] root INFO:         name : Cosine
+[2021/05/19 11:13:49] root INFO:     name : Adam
+[2021/05/19 11:13:49] root INFO:     regularizer : 
+[2021/05/19 11:13:49] root INFO:         factor : 1e-05
+[2021/05/19 11:13:49] root INFO:         name : L2
+[2021/05/19 11:13:49] root INFO: PostProcess : 
+[2021/05/19 11:13:49] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:13:49] root INFO: Train : 
+[2021/05/19 11:13:49] root INFO:     dataset : 
+[2021/05/19 11:13:49] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:13:49] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:13:49] root INFO:         name : SimpleDataSet
+[2021/05/19 11:13:49] root INFO:         transforms : 
+[2021/05/19 11:13:49] root INFO:             DecodeImage : 
+[2021/05/19 11:13:49] root INFO:                 channel_first : False
+[2021/05/19 11:13:49] root INFO:                 img_mode : BGR
+[2021/05/19 11:13:49] root INFO:             RecAug : None
+[2021/05/19 11:13:49] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:13:49] root INFO:             RecResizeImg : 
+[2021/05/19 11:13:49] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:13:49] root INFO:             KeepKeys : 
+[2021/05/19 11:13:49] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:13:49] root INFO:     loader : 
+[2021/05/19 11:13:49] root INFO:         batch_size_per_card : 128
+[2021/05/19 11:13:49] root INFO:         drop_last : True
+[2021/05/19 11:13:49] root INFO:         num_workers : 8
+[2021/05/19 11:13:49] root INFO:         shuffle : True
+[2021/05/19 11:13:49] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0519 11:13:50.002935 71803 nccl_context.cc:189] init nccl context nranks: 6 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:13:51.422628 71803 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:13:51.435328 71803 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:13:55] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:13:55] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:13:55,597 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:13:55] root INFO: train from scratch
+[2021/05/19 11:13:55] root INFO: train dataloader has 130 iters
+[2021/05/19 11:13:55] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:13:55] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:13:55] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+W0519 11:14:01.127446 74222 system_allocator.cc:204] cudaHostAlloc failed.
+W0519 11:14:01.128147 74222 naive_best_fit_allocator.cc:379] cudaHostAlloc Cannot allocate 15728640 bytes in CUDAPinnedPlace
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+0   std::thread::_State_impl<std::thread::_Invoker<std::tuple<ThreadPool::ThreadPool(unsigned long)::{lambda()#1}> > >::_M_run()
+1   std::__future_base::_State_baseV2::_M_do_set(std::function<std::unique_ptr<std::__future_base::_Result_base, std::__future_base::_Result_base::_Deleter> ()>*, bool*)
+2   paddle::framework::SignalHandle(char const*, int)
+3   paddle::platform::GetCurrentTraceBackString[abi:cxx11]()
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Segmentation fault` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1621422841 (unix time) try "date -d @1621422841" if you are using GNU date ***]
+  [SignalInfo: *** SIGSEGV (@0x20) received by PID 71803 (TID 0x7fe72bfff700) from PID 32 ***]
+
+!!!!!!!!!ok: 0
+[2021/05/19 11:15:08] root INFO: Architecture : 
+[2021/05/19 11:15:08] root INFO:     Backbone : 
+[2021/05/19 11:15:08] root INFO:         model_name : small
+[2021/05/19 11:15:08] root INFO:         name : MobileNetV3
+[2021/05/19 11:15:08] root INFO:         scale : 0.5
+[2021/05/19 11:15:08] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:15:08] root INFO:     Head : 
+[2021/05/19 11:15:08] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:15:08] root INFO:         name : CTCHead
+[2021/05/19 11:15:08] root INFO:     Neck : 
+[2021/05/19 11:15:08] root INFO:         encoder_type : rnn
+[2021/05/19 11:15:08] root INFO:         hidden_size : 48
+[2021/05/19 11:15:08] root INFO:         name : SequenceEncoder
+[2021/05/19 11:15:08] root INFO:     Transform : None
+[2021/05/19 11:15:08] root INFO:     algorithm : CRNN
+[2021/05/19 11:15:08] root INFO:     model_type : rec
+[2021/05/19 11:15:08] root INFO: Eval : 
+[2021/05/19 11:15:08] root INFO:     dataset : 
+[2021/05/19 11:15:08] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:15:08] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:15:08] root INFO:         name : SimpleDataSet
+[2021/05/19 11:15:08] root INFO:         transforms : 
+[2021/05/19 11:15:08] root INFO:             DecodeImage : 
+[2021/05/19 11:15:08] root INFO:                 channel_first : False
+[2021/05/19 11:15:08] root INFO:                 img_mode : BGR
+[2021/05/19 11:15:08] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:15:08] root INFO:             RecResizeImg : 
+[2021/05/19 11:15:08] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:15:08] root INFO:             KeepKeys : 
+[2021/05/19 11:15:08] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:15:08] root INFO:     loader : 
+[2021/05/19 11:15:08] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:15:08] root INFO:         drop_last : False
+[2021/05/19 11:15:08] root INFO:         num_workers : 8
+[2021/05/19 11:15:08] root INFO:         shuffle : False
+[2021/05/19 11:15:08] root INFO: Global : 
+[2021/05/19 11:15:08] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:15:08] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:15:08] root INFO:     character_type : ch
+[2021/05/19 11:15:08] root INFO:     checkpoints : None
+[2021/05/19 11:15:08] root INFO:     debug : False
+[2021/05/19 11:15:08] root INFO:     distributed : True
+[2021/05/19 11:15:08] root INFO:     epoch_num : 500
+[2021/05/19 11:15:08] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:15:08] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:15:08] root INFO:     infer_mode : False
+[2021/05/19 11:15:08] root INFO:     log_smooth_window : 20
+[2021/05/19 11:15:08] root INFO:     max_text_length : 25
+[2021/05/19 11:15:08] root INFO:     pretrained_model : None
+[2021/05/19 11:15:08] root INFO:     print_batch_step : 10
+[2021/05/19 11:15:08] root INFO:     save_epoch_step : 3
+[2021/05/19 11:15:08] root INFO:     save_inference_dir : None
+[2021/05/19 11:15:08] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:15:08] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:15:08] root INFO:     use_gpu : True
+[2021/05/19 11:15:08] root INFO:     use_space_char : True
+[2021/05/19 11:15:08] root INFO:     use_visualdl : False
+[2021/05/19 11:15:08] root INFO: Loss : 
+[2021/05/19 11:15:08] root INFO:     name : CTCLoss
+[2021/05/19 11:15:08] root INFO: Metric : 
+[2021/05/19 11:15:08] root INFO:     main_indicator : acc
+[2021/05/19 11:15:08] root INFO:     name : RecMetric
+[2021/05/19 11:15:08] root INFO: Optimizer : 
+[2021/05/19 11:15:08] root INFO:     beta1 : 0.9
+[2021/05/19 11:15:08] root INFO:     beta2 : 0.999
+[2021/05/19 11:15:08] root INFO:     lr : 
+[2021/05/19 11:15:08] root INFO:         learning_rate : 0.001
+[2021/05/19 11:15:08] root INFO:         name : Cosine
+[2021/05/19 11:15:08] root INFO:     name : Adam
+[2021/05/19 11:15:08] root INFO:     regularizer : 
+[2021/05/19 11:15:08] root INFO:         factor : 1e-05
+[2021/05/19 11:15:08] root INFO:         name : L2
+[2021/05/19 11:15:08] root INFO: PostProcess : 
+[2021/05/19 11:15:08] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:15:08] root INFO: Train : 
+[2021/05/19 11:15:08] root INFO:     dataset : 
+[2021/05/19 11:15:08] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:15:08] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:15:08] root INFO:         name : SimpleDataSet
+[2021/05/19 11:15:08] root INFO:         transforms : 
+[2021/05/19 11:15:08] root INFO:             DecodeImage : 
+[2021/05/19 11:15:08] root INFO:                 channel_first : False
+[2021/05/19 11:15:08] root INFO:                 img_mode : BGR
+[2021/05/19 11:15:08] root INFO:             RecAug : None
+[2021/05/19 11:15:08] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:15:08] root INFO:             RecResizeImg : 
+[2021/05/19 11:15:08] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:15:08] root INFO:             KeepKeys : 
+[2021/05/19 11:15:08] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:15:08] root INFO:     loader : 
+[2021/05/19 11:15:08] root INFO:         batch_size_per_card : 224
+[2021/05/19 11:15:08] root INFO:         drop_last : True
+[2021/05/19 11:15:08] root INFO:         num_workers : 8
+[2021/05/19 11:15:08] root INFO:         shuffle : True
+[2021/05/19 11:15:08] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0519 11:15:08.468927 77032 nccl_context.cc:189] init nccl context nranks: 4 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:15:09.433544 77032 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:15:09.458379 77032 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:15:13] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:15:13] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:15:14,098 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:15:14] root INFO: train from scratch
+[2021/05/19 11:15:14] root INFO: train dataloader has 111 iters
+[2021/05/19 11:15:14] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:15:14] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:15:14] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+!!!!!!!!!ok: 0
+[2021/05/19 11:16:29] root INFO: Architecture : 
+[2021/05/19 11:16:29] root INFO:     Backbone : 
+[2021/05/19 11:16:29] root INFO:         model_name : small
+[2021/05/19 11:16:29] root INFO:         name : MobileNetV3
+[2021/05/19 11:16:29] root INFO:         scale : 0.5
+[2021/05/19 11:16:29] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:16:29] root INFO:     Head : 
+[2021/05/19 11:16:29] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:16:29] root INFO:         name : CTCHead
+[2021/05/19 11:16:29] root INFO:     Neck : 
+[2021/05/19 11:16:29] root INFO:         encoder_type : rnn
+[2021/05/19 11:16:29] root INFO:         hidden_size : 48
+[2021/05/19 11:16:29] root INFO:         name : SequenceEncoder
+[2021/05/19 11:16:29] root INFO:     Transform : None
+[2021/05/19 11:16:29] root INFO:     algorithm : CRNN
+[2021/05/19 11:16:29] root INFO:     model_type : rec
+[2021/05/19 11:16:29] root INFO: Eval : 
+[2021/05/19 11:16:29] root INFO:     dataset : 
+[2021/05/19 11:16:29] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:16:29] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:16:29] root INFO:         name : SimpleDataSet
+[2021/05/19 11:16:29] root INFO:         transforms : 
+[2021/05/19 11:16:29] root INFO:             DecodeImage : 
+[2021/05/19 11:16:29] root INFO:                 channel_first : False
+[2021/05/19 11:16:29] root INFO:                 img_mode : BGR
+[2021/05/19 11:16:29] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:16:29] root INFO:             RecResizeImg : 
+[2021/05/19 11:16:29] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:16:29] root INFO:             KeepKeys : 
+[2021/05/19 11:16:29] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:16:29] root INFO:     loader : 
+[2021/05/19 11:16:29] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:16:29] root INFO:         drop_last : False
+[2021/05/19 11:16:29] root INFO:         num_workers : 8
+[2021/05/19 11:16:29] root INFO:         shuffle : False
+[2021/05/19 11:16:29] root INFO: Global : 
+[2021/05/19 11:16:29] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:16:29] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:16:29] root INFO:     character_type : ch
+[2021/05/19 11:16:29] root INFO:     checkpoints : None
+[2021/05/19 11:16:29] root INFO:     debug : False
+[2021/05/19 11:16:29] root INFO:     distributed : True
+[2021/05/19 11:16:29] root INFO:     epoch_num : 500
+[2021/05/19 11:16:29] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:16:29] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:16:29] root INFO:     infer_mode : False
+[2021/05/19 11:16:29] root INFO:     log_smooth_window : 20
+[2021/05/19 11:16:29] root INFO:     max_text_length : 25
+[2021/05/19 11:16:29] root INFO:     pretrained_model : None
+[2021/05/19 11:16:29] root INFO:     print_batch_step : 10
+[2021/05/19 11:16:29] root INFO:     save_epoch_step : 3
+[2021/05/19 11:16:29] root INFO:     save_inference_dir : None
+[2021/05/19 11:16:29] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:16:29] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:16:29] root INFO:     use_gpu : True
+[2021/05/19 11:16:29] root INFO:     use_space_char : True
+[2021/05/19 11:16:29] root INFO:     use_visualdl : False
+[2021/05/19 11:16:29] root INFO: Loss : 
+[2021/05/19 11:16:29] root INFO:     name : CTCLoss
+[2021/05/19 11:16:29] root INFO: Metric : 
+[2021/05/19 11:16:29] root INFO:     main_indicator : acc
+[2021/05/19 11:16:29] root INFO:     name : RecMetric
+[2021/05/19 11:16:29] root INFO: Optimizer : 
+[2021/05/19 11:16:29] root INFO:     beta1 : 0.9
+[2021/05/19 11:16:29] root INFO:     beta2 : 0.999
+[2021/05/19 11:16:29] root INFO:     lr : 
+[2021/05/19 11:16:29] root INFO:         learning_rate : 0.001
+[2021/05/19 11:16:29] root INFO:         name : Cosine
+[2021/05/19 11:16:29] root INFO:     name : Adam
+[2021/05/19 11:16:29] root INFO:     regularizer : 
+[2021/05/19 11:16:29] root INFO:         factor : 1e-05
+[2021/05/19 11:16:29] root INFO:         name : L2
+[2021/05/19 11:16:29] root INFO: PostProcess : 
+[2021/05/19 11:16:29] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:16:29] root INFO: Train : 
+[2021/05/19 11:16:29] root INFO:     dataset : 
+[2021/05/19 11:16:29] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:16:29] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:16:29] root INFO:         name : SimpleDataSet
+[2021/05/19 11:16:29] root INFO:         transforms : 
+[2021/05/19 11:16:29] root INFO:             DecodeImage : 
+[2021/05/19 11:16:29] root INFO:                 channel_first : False
+[2021/05/19 11:16:29] root INFO:                 img_mode : BGR
+[2021/05/19 11:16:29] root INFO:             RecAug : None
+[2021/05/19 11:16:29] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:16:29] root INFO:             RecResizeImg : 
+[2021/05/19 11:16:29] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:16:29] root INFO:             KeepKeys : 
+[2021/05/19 11:16:29] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:16:29] root INFO:     loader : 
+[2021/05/19 11:16:29] root INFO:         batch_size_per_card : 224
+[2021/05/19 11:16:29] root INFO:         drop_last : True
+[2021/05/19 11:16:29] root INFO:         num_workers : 8
+[2021/05/19 11:16:29] root INFO:         shuffle : True
+[2021/05/19 11:16:29] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0519 11:16:29.806265 80780 nccl_context.cc:189] init nccl context nranks: 4 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:16:30.936794 80780 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:16:30.956306 80780 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:16:35] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:16:35] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:16:35,936 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:16:35] root INFO: train from scratch
+[2021/05/19 11:16:35] root INFO: train dataloader has 111 iters
+[2021/05/19 11:16:35] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:16:35] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:16:35] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+Traceback (most recent call last):
+  File "tools/train.py", line 126, in <module>
+    main(config, device, logger, vdl_writer)
+  File "tools/train.py", line 103, in main
+    eval_class, pre_best_model_dict, logger, vdl_writer)
+  File "/data/data/ppocr_mh/work/PaddleOCR/tools/program.py", line 213, in train
+    avg_loss.backward()
+  File "<decorator-gen-114>", line 2, in backward
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/wrapped_decorator.py", line 25, in __impl__
+    return wrapped_func(*args, **kwargs)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/framework.py", line 225, in __impl__
+    return func(*args, **kwargs)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/dygraph/varbase_patch_methods.py", line 175, in backward
+    retain_graph)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/multiprocess_utils.py", line 134, in __handler__
+    core._throw_error_if_process_failed()
+SystemError: (Fatal) DataLoader process (pid 82276) exited is killed by signal: Killed. (at /paddle/paddle/fluid/imperative/data_loader.cc:165)
+
+!!!!!!!!!ok: 0
+[2021/05/19 11:18:14] root INFO: Architecture : 
+[2021/05/19 11:18:14] root INFO:     Backbone : 
+[2021/05/19 11:18:14] root INFO:         model_name : small
+[2021/05/19 11:18:14] root INFO:         name : MobileNetV3
+[2021/05/19 11:18:14] root INFO:         scale : 0.5
+[2021/05/19 11:18:14] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:18:14] root INFO:     Head : 
+[2021/05/19 11:18:14] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:18:14] root INFO:         name : CTCHead
+[2021/05/19 11:18:14] root INFO:     Neck : 
+[2021/05/19 11:18:14] root INFO:         encoder_type : rnn
+[2021/05/19 11:18:14] root INFO:         hidden_size : 48
+[2021/05/19 11:18:14] root INFO:         name : SequenceEncoder
+[2021/05/19 11:18:14] root INFO:     Transform : None
+[2021/05/19 11:18:14] root INFO:     algorithm : CRNN
+[2021/05/19 11:18:14] root INFO:     model_type : rec
+[2021/05/19 11:18:14] root INFO: Eval : 
+[2021/05/19 11:18:14] root INFO:     dataset : 
+[2021/05/19 11:18:14] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:18:14] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:18:14] root INFO:         name : SimpleDataSet
+[2021/05/19 11:18:14] root INFO:         transforms : 
+[2021/05/19 11:18:14] root INFO:             DecodeImage : 
+[2021/05/19 11:18:14] root INFO:                 channel_first : False
+[2021/05/19 11:18:14] root INFO:                 img_mode : BGR
+[2021/05/19 11:18:14] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:18:14] root INFO:             RecResizeImg : 
+[2021/05/19 11:18:14] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:18:14] root INFO:             KeepKeys : 
+[2021/05/19 11:18:14] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:18:14] root INFO:     loader : 
+[2021/05/19 11:18:14] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:18:14] root INFO:         drop_last : False
+[2021/05/19 11:18:14] root INFO:         num_workers : 8
+[2021/05/19 11:18:14] root INFO:         shuffle : False
+[2021/05/19 11:18:14] root INFO: Global : 
+[2021/05/19 11:18:14] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:18:14] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:18:14] root INFO:     character_type : ch
+[2021/05/19 11:18:14] root INFO:     checkpoints : None
+[2021/05/19 11:18:14] root INFO:     debug : False
+[2021/05/19 11:18:14] root INFO:     distributed : True
+[2021/05/19 11:18:14] root INFO:     epoch_num : 500
+[2021/05/19 11:18:14] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:18:14] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:18:14] root INFO:     infer_mode : False
+[2021/05/19 11:18:14] root INFO:     log_smooth_window : 20
+[2021/05/19 11:18:14] root INFO:     max_text_length : 25
+[2021/05/19 11:18:14] root INFO:     pretrained_model : None
+[2021/05/19 11:18:14] root INFO:     print_batch_step : 10
+[2021/05/19 11:18:14] root INFO:     save_epoch_step : 3
+[2021/05/19 11:18:14] root INFO:     save_inference_dir : None
+[2021/05/19 11:18:14] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:18:14] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:18:14] root INFO:     use_gpu : True
+[2021/05/19 11:18:14] root INFO:     use_space_char : True
+[2021/05/19 11:18:14] root INFO:     use_visualdl : False
+[2021/05/19 11:18:14] root INFO: Loss : 
+[2021/05/19 11:18:14] root INFO:     name : CTCLoss
+[2021/05/19 11:18:14] root INFO: Metric : 
+[2021/05/19 11:18:14] root INFO:     main_indicator : acc
+[2021/05/19 11:18:14] root INFO:     name : RecMetric
+[2021/05/19 11:18:14] root INFO: Optimizer : 
+[2021/05/19 11:18:14] root INFO:     beta1 : 0.9
+[2021/05/19 11:18:14] root INFO:     beta2 : 0.999
+[2021/05/19 11:18:14] root INFO:     lr : 
+[2021/05/19 11:18:14] root INFO:         learning_rate : 0.001
+[2021/05/19 11:18:14] root INFO:         name : Cosine
+[2021/05/19 11:18:14] root INFO:     name : Adam
+[2021/05/19 11:18:14] root INFO:     regularizer : 
+[2021/05/19 11:18:14] root INFO:         factor : 1e-05
+[2021/05/19 11:18:14] root INFO:         name : L2
+[2021/05/19 11:18:14] root INFO: PostProcess : 
+[2021/05/19 11:18:14] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:18:14] root INFO: Train : 
+[2021/05/19 11:18:14] root INFO:     dataset : 
+[2021/05/19 11:18:14] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:18:14] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:18:14] root INFO:         name : SimpleDataSet
+[2021/05/19 11:18:14] root INFO:         transforms : 
+[2021/05/19 11:18:14] root INFO:             DecodeImage : 
+[2021/05/19 11:18:14] root INFO:                 channel_first : False
+[2021/05/19 11:18:14] root INFO:                 img_mode : BGR
+[2021/05/19 11:18:14] root INFO:             RecAug : None
+[2021/05/19 11:18:14] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:18:14] root INFO:             RecResizeImg : 
+[2021/05/19 11:18:14] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:18:14] root INFO:             KeepKeys : 
+[2021/05/19 11:18:14] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:18:14] root INFO:     loader : 
+[2021/05/19 11:18:14] root INFO:         batch_size_per_card : 224
+[2021/05/19 11:18:14] root INFO:         drop_last : True
+[2021/05/19 11:18:14] root INFO:         num_workers : 8
+[2021/05/19 11:18:14] root INFO:         shuffle : True
+[2021/05/19 11:18:14] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0519 11:18:14.976368 85480 nccl_context.cc:189] init nccl context nranks: 4 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:18:15.922093 85480 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:18:15.941087 85480 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:18:20] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:18:20] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:18:20,515 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:18:20] root INFO: train from scratch
+[2021/05/19 11:18:20] root INFO: train dataloader has 111 iters
+[2021/05/19 11:18:20] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:18:20] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:18:20] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+!!!!!!!!!ok: 0
+[2021/05/19 11:19:51] root INFO: Architecture : 
+[2021/05/19 11:19:51] root INFO:     Backbone : 
+[2021/05/19 11:19:51] root INFO:         model_name : small
+[2021/05/19 11:19:51] root INFO:         name : MobileNetV3
+[2021/05/19 11:19:51] root INFO:         scale : 0.5
+[2021/05/19 11:19:51] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:19:51] root INFO:     Head : 
+[2021/05/19 11:19:51] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:19:51] root INFO:         name : CTCHead
+[2021/05/19 11:19:51] root INFO:     Neck : 
+[2021/05/19 11:19:51] root INFO:         encoder_type : rnn
+[2021/05/19 11:19:51] root INFO:         hidden_size : 48
+[2021/05/19 11:19:51] root INFO:         name : SequenceEncoder
+[2021/05/19 11:19:51] root INFO:     Transform : None
+[2021/05/19 11:19:51] root INFO:     algorithm : CRNN
+[2021/05/19 11:19:51] root INFO:     model_type : rec
+[2021/05/19 11:19:51] root INFO: Eval : 
+[2021/05/19 11:19:51] root INFO:     dataset : 
+[2021/05/19 11:19:51] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:19:51] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:19:51] root INFO:         name : SimpleDataSet
+[2021/05/19 11:19:51] root INFO:         transforms : 
+[2021/05/19 11:19:51] root INFO:             DecodeImage : 
+[2021/05/19 11:19:51] root INFO:                 channel_first : False
+[2021/05/19 11:19:51] root INFO:                 img_mode : BGR
+[2021/05/19 11:19:51] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:19:51] root INFO:             RecResizeImg : 
+[2021/05/19 11:19:51] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:19:51] root INFO:             KeepKeys : 
+[2021/05/19 11:19:51] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:19:51] root INFO:     loader : 
+[2021/05/19 11:19:51] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:19:51] root INFO:         drop_last : False
+[2021/05/19 11:19:51] root INFO:         num_workers : 8
+[2021/05/19 11:19:51] root INFO:         shuffle : False
+[2021/05/19 11:19:51] root INFO: Global : 
+[2021/05/19 11:19:51] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:19:51] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:19:51] root INFO:     character_type : ch
+[2021/05/19 11:19:51] root INFO:     checkpoints : None
+[2021/05/19 11:19:51] root INFO:     debug : False
+[2021/05/19 11:19:51] root INFO:     distributed : True
+[2021/05/19 11:19:51] root INFO:     epoch_num : 500
+[2021/05/19 11:19:51] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:19:51] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:19:51] root INFO:     infer_mode : False
+[2021/05/19 11:19:51] root INFO:     log_smooth_window : 20
+[2021/05/19 11:19:51] root INFO:     max_text_length : 25
+[2021/05/19 11:19:51] root INFO:     pretrained_model : None
+[2021/05/19 11:19:51] root INFO:     print_batch_step : 10
+[2021/05/19 11:19:51] root INFO:     save_epoch_step : 3
+[2021/05/19 11:19:51] root INFO:     save_inference_dir : None
+[2021/05/19 11:19:51] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:19:51] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:19:51] root INFO:     use_gpu : True
+[2021/05/19 11:19:51] root INFO:     use_space_char : True
+[2021/05/19 11:19:51] root INFO:     use_visualdl : False
+[2021/05/19 11:19:51] root INFO: Loss : 
+[2021/05/19 11:19:51] root INFO:     name : CTCLoss
+[2021/05/19 11:19:51] root INFO: Metric : 
+[2021/05/19 11:19:51] root INFO:     main_indicator : acc
+[2021/05/19 11:19:51] root INFO:     name : RecMetric
+[2021/05/19 11:19:51] root INFO: Optimizer : 
+[2021/05/19 11:19:51] root INFO:     beta1 : 0.9
+[2021/05/19 11:19:51] root INFO:     beta2 : 0.999
+[2021/05/19 11:19:51] root INFO:     lr : 
+[2021/05/19 11:19:51] root INFO:         learning_rate : 0.001
+[2021/05/19 11:19:51] root INFO:         name : Cosine
+[2021/05/19 11:19:51] root INFO:     name : Adam
+[2021/05/19 11:19:51] root INFO:     regularizer : 
+[2021/05/19 11:19:51] root INFO:         factor : 1e-05
+[2021/05/19 11:19:51] root INFO:         name : L2
+[2021/05/19 11:19:51] root INFO: PostProcess : 
+[2021/05/19 11:19:51] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:19:51] root INFO: Train : 
+[2021/05/19 11:19:51] root INFO:     dataset : 
+[2021/05/19 11:19:51] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:19:51] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:19:51] root INFO:         name : SimpleDataSet
+[2021/05/19 11:19:51] root INFO:         transforms : 
+[2021/05/19 11:19:51] root INFO:             DecodeImage : 
+[2021/05/19 11:19:51] root INFO:                 channel_first : False
+[2021/05/19 11:19:51] root INFO:                 img_mode : BGR
+[2021/05/19 11:19:51] root INFO:             RecAug : None
+[2021/05/19 11:19:51] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:19:51] root INFO:             RecResizeImg : 
+[2021/05/19 11:19:51] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:19:51] root INFO:             KeepKeys : 
+[2021/05/19 11:19:51] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:19:51] root INFO:     loader : 
+[2021/05/19 11:19:51] root INFO:         batch_size_per_card : 224
+[2021/05/19 11:19:51] root INFO:         drop_last : True
+[2021/05/19 11:19:51] root INFO:         num_workers : 8
+[2021/05/19 11:19:51] root INFO:         shuffle : True
+[2021/05/19 11:19:51] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0519 11:19:51.046572 89780 nccl_context.cc:189] init nccl context nranks: 4 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:19:51.964080 89780 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:19:51.974256 89780 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:19:56] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:19:56] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:19:56,547 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:19:56] root INFO: train from scratch
+[2021/05/19 11:19:56] root INFO: train dataloader has 111 iters
+[2021/05/19 11:19:56] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:19:56] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:19:56] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+W0519 11:20:02.312891 90342 system_allocator.cc:204] cudaHostAlloc failed.
+W0519 11:20:02.323045 90342 naive_best_fit_allocator.cc:379] cudaHostAlloc Cannot allocate 27525120 bytes in CUDAPinnedPlace
+
+
+--------------------------------------
+C++ Traceback (most recent call last):
+--------------------------------------
+0   std::thread::_State_impl<std::thread::_Invoker<std::tuple<ThreadPool::ThreadPool(unsigned long)::{lambda()#1}> > >::_M_run()
+1   std::__future_base::_State_baseV2::_M_do_set(std::function<std::unique_ptr<std::__future_base::_Result_base, std::__future_base::_Result_base::_Deleter> ()>*, bool*)
+2   paddle::framework::SignalHandle(char const*, int)
+3   paddle::platform::GetCurrentTraceBackString[abi:cxx11]()
+
+----------------------
+Error Message Summary:
+----------------------
+FatalError: `Segmentation fault` is detected by the operating system.
+  [TimeInfo: *** Aborted at 1621423202 (unix time) try "date -d @1621423202" if you are using GNU date ***]
+  [SignalInfo: *** SIGSEGV (@0x20) received by PID 89780 (TID 0x7f9c9ffff700) from PID 32 ***]
+
+!!!!!!!!!ok: 0
+[2021/05/19 11:22:01] root INFO: Architecture : 
+[2021/05/19 11:22:01] root INFO:     Backbone : 
+[2021/05/19 11:22:01] root INFO:         model_name : small
+[2021/05/19 11:22:01] root INFO:         name : MobileNetV3
+[2021/05/19 11:22:01] root INFO:         scale : 0.5
+[2021/05/19 11:22:01] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:22:01] root INFO:     Head : 
+[2021/05/19 11:22:01] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:22:01] root INFO:         name : CTCHead
+[2021/05/19 11:22:01] root INFO:     Neck : 
+[2021/05/19 11:22:01] root INFO:         encoder_type : rnn
+[2021/05/19 11:22:01] root INFO:         hidden_size : 48
+[2021/05/19 11:22:01] root INFO:         name : SequenceEncoder
+[2021/05/19 11:22:01] root INFO:     Transform : None
+[2021/05/19 11:22:01] root INFO:     algorithm : CRNN
+[2021/05/19 11:22:01] root INFO:     model_type : rec
+[2021/05/19 11:22:01] root INFO: Eval : 
+[2021/05/19 11:22:01] root INFO:     dataset : 
+[2021/05/19 11:22:01] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:22:01] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:22:01] root INFO:         name : SimpleDataSet
+[2021/05/19 11:22:01] root INFO:         transforms : 
+[2021/05/19 11:22:01] root INFO:             DecodeImage : 
+[2021/05/19 11:22:01] root INFO:                 channel_first : False
+[2021/05/19 11:22:01] root INFO:                 img_mode : BGR
+[2021/05/19 11:22:01] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:22:01] root INFO:             RecResizeImg : 
+[2021/05/19 11:22:01] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:22:01] root INFO:             KeepKeys : 
+[2021/05/19 11:22:01] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:22:01] root INFO:     loader : 
+[2021/05/19 11:22:01] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:22:01] root INFO:         drop_last : False
+[2021/05/19 11:22:01] root INFO:         num_workers : 8
+[2021/05/19 11:22:01] root INFO:         shuffle : False
+[2021/05/19 11:22:01] root INFO: Global : 
+[2021/05/19 11:22:01] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:22:01] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:22:01] root INFO:     character_type : ch
+[2021/05/19 11:22:01] root INFO:     checkpoints : None
+[2021/05/19 11:22:01] root INFO:     debug : False
+[2021/05/19 11:22:01] root INFO:     distributed : True
+[2021/05/19 11:22:01] root INFO:     epoch_num : 500
+[2021/05/19 11:22:01] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:22:01] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:22:01] root INFO:     infer_mode : False
+[2021/05/19 11:22:01] root INFO:     log_smooth_window : 20
+[2021/05/19 11:22:01] root INFO:     max_text_length : 25
+[2021/05/19 11:22:01] root INFO:     pretrained_model : None
+[2021/05/19 11:22:01] root INFO:     print_batch_step : 10
+[2021/05/19 11:22:01] root INFO:     save_epoch_step : 3
+[2021/05/19 11:22:01] root INFO:     save_inference_dir : None
+[2021/05/19 11:22:01] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:22:01] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:22:01] root INFO:     use_gpu : True
+[2021/05/19 11:22:01] root INFO:     use_space_char : True
+[2021/05/19 11:22:01] root INFO:     use_visualdl : False
+[2021/05/19 11:22:01] root INFO: Loss : 
+[2021/05/19 11:22:01] root INFO:     name : CTCLoss
+[2021/05/19 11:22:01] root INFO: Metric : 
+[2021/05/19 11:22:01] root INFO:     main_indicator : acc
+[2021/05/19 11:22:01] root INFO:     name : RecMetric
+[2021/05/19 11:22:01] root INFO: Optimizer : 
+[2021/05/19 11:22:01] root INFO:     beta1 : 0.9
+[2021/05/19 11:22:01] root INFO:     beta2 : 0.999
+[2021/05/19 11:22:01] root INFO:     lr : 
+[2021/05/19 11:22:01] root INFO:         learning_rate : 0.001
+[2021/05/19 11:22:01] root INFO:         name : Cosine
+[2021/05/19 11:22:01] root INFO:     name : Adam
+[2021/05/19 11:22:01] root INFO:     regularizer : 
+[2021/05/19 11:22:01] root INFO:         factor : 1e-05
+[2021/05/19 11:22:01] root INFO:         name : L2
+[2021/05/19 11:22:01] root INFO: PostProcess : 
+[2021/05/19 11:22:01] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:22:01] root INFO: Train : 
+[2021/05/19 11:22:01] root INFO:     dataset : 
+[2021/05/19 11:22:01] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:22:01] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:22:01] root INFO:         name : SimpleDataSet
+[2021/05/19 11:22:01] root INFO:         transforms : 
+[2021/05/19 11:22:01] root INFO:             DecodeImage : 
+[2021/05/19 11:22:01] root INFO:                 channel_first : False
+[2021/05/19 11:22:01] root INFO:                 img_mode : BGR
+[2021/05/19 11:22:01] root INFO:             RecAug : None
+[2021/05/19 11:22:01] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:22:01] root INFO:             RecResizeImg : 
+[2021/05/19 11:22:01] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:22:01] root INFO:             KeepKeys : 
+[2021/05/19 11:22:01] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:22:01] root INFO:     loader : 
+[2021/05/19 11:22:01] root INFO:         batch_size_per_card : 224
+[2021/05/19 11:22:01] root INFO:         drop_last : True
+[2021/05/19 11:22:01] root INFO:         num_workers : 8
+[2021/05/19 11:22:01] root INFO:         shuffle : True
+[2021/05/19 11:22:01] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0519 11:22:01.137210 95028 nccl_context.cc:189] init nccl context nranks: 2 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:22:01.695583 95028 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:22:01.779227 95028 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:22:05] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:22:05] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:22:05,457 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:22:05] root INFO: train from scratch
+[2021/05/19 11:22:05] root INFO: train dataloader has 223 iters
+[2021/05/19 11:22:05] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:22:05] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:22:05] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+Traceback (most recent call last):
+  File "tools/train.py", line 126, in <module>
+    main(config, device, logger, vdl_writer)
+  File "tools/train.py", line 103, in main
+    eval_class, pre_best_model_dict, logger, vdl_writer)
+  File "/data/data/ppocr_mh/work/PaddleOCR/tools/program.py", line 230, in train
+    post_result = post_process_class(preds, batch[1])
+  File "/data/data/ppocr_mh/work/PaddleOCR/ppocr/postprocess/rec_postprocess.py", line 114, in __call__
+    preds = preds.numpy()
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/multiprocess_utils.py", line 134, in __handler__
+    core._throw_error_if_process_failed()
+SystemError: (Fatal) DataLoader process (pid 95071) exited is killed by signal: Killed. (at /paddle/paddle/fluid/imperative/data_loader.cc:165)
+
+!!!!!!!!!ok: 5
+[2021/05/19 11:22:53] root INFO: Architecture : 
+[2021/05/19 11:22:53] root INFO:     Backbone : 
+[2021/05/19 11:22:53] root INFO:         model_name : small
+[2021/05/19 11:22:53] root INFO:         name : MobileNetV3
+[2021/05/19 11:22:53] root INFO:         scale : 0.5
+[2021/05/19 11:22:53] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:22:53] root INFO:     Head : 
+[2021/05/19 11:22:53] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:22:53] root INFO:         name : CTCHead
+[2021/05/19 11:22:53] root INFO:     Neck : 
+[2021/05/19 11:22:53] root INFO:         encoder_type : rnn
+[2021/05/19 11:22:53] root INFO:         hidden_size : 48
+[2021/05/19 11:22:53] root INFO:         name : SequenceEncoder
+[2021/05/19 11:22:53] root INFO:     Transform : None
+[2021/05/19 11:22:53] root INFO:     algorithm : CRNN
+[2021/05/19 11:22:53] root INFO:     model_type : rec
+[2021/05/19 11:22:53] root INFO: Eval : 
+[2021/05/19 11:22:53] root INFO:     dataset : 
+[2021/05/19 11:22:53] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:22:53] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:22:53] root INFO:         name : SimpleDataSet
+[2021/05/19 11:22:53] root INFO:         transforms : 
+[2021/05/19 11:22:53] root INFO:             DecodeImage : 
+[2021/05/19 11:22:53] root INFO:                 channel_first : False
+[2021/05/19 11:22:53] root INFO:                 img_mode : BGR
+[2021/05/19 11:22:53] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:22:53] root INFO:             RecResizeImg : 
+[2021/05/19 11:22:53] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:22:53] root INFO:             KeepKeys : 
+[2021/05/19 11:22:53] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:22:53] root INFO:     loader : 
+[2021/05/19 11:22:53] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:22:53] root INFO:         drop_last : False
+[2021/05/19 11:22:53] root INFO:         num_workers : 8
+[2021/05/19 11:22:53] root INFO:         shuffle : False
+[2021/05/19 11:22:53] root INFO: Global : 
+[2021/05/19 11:22:53] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:22:53] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:22:53] root INFO:     character_type : ch
+[2021/05/19 11:22:53] root INFO:     checkpoints : None
+[2021/05/19 11:22:53] root INFO:     debug : False
+[2021/05/19 11:22:53] root INFO:     distributed : True
+[2021/05/19 11:22:53] root INFO:     epoch_num : 500
+[2021/05/19 11:22:53] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:22:53] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:22:53] root INFO:     infer_mode : False
+[2021/05/19 11:22:53] root INFO:     log_smooth_window : 20
+[2021/05/19 11:22:53] root INFO:     max_text_length : 25
+[2021/05/19 11:22:53] root INFO:     pretrained_model : None
+[2021/05/19 11:22:53] root INFO:     print_batch_step : 10
+[2021/05/19 11:22:53] root INFO:     save_epoch_step : 3
+[2021/05/19 11:22:53] root INFO:     save_inference_dir : None
+[2021/05/19 11:22:53] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:22:53] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:22:53] root INFO:     use_gpu : True
+[2021/05/19 11:22:53] root INFO:     use_space_char : True
+[2021/05/19 11:22:53] root INFO:     use_visualdl : False
+[2021/05/19 11:22:53] root INFO: Loss : 
+[2021/05/19 11:22:53] root INFO:     name : CTCLoss
+[2021/05/19 11:22:53] root INFO: Metric : 
+[2021/05/19 11:22:53] root INFO:     main_indicator : acc
+[2021/05/19 11:22:53] root INFO:     name : RecMetric
+[2021/05/19 11:22:53] root INFO: Optimizer : 
+[2021/05/19 11:22:53] root INFO:     beta1 : 0.9
+[2021/05/19 11:22:53] root INFO:     beta2 : 0.999
+[2021/05/19 11:22:53] root INFO:     lr : 
+[2021/05/19 11:22:53] root INFO:         learning_rate : 0.001
+[2021/05/19 11:22:53] root INFO:         name : Cosine
+[2021/05/19 11:22:53] root INFO:     name : Adam
+[2021/05/19 11:22:53] root INFO:     regularizer : 
+[2021/05/19 11:22:53] root INFO:         factor : 1e-05
+[2021/05/19 11:22:53] root INFO:         name : L2
+[2021/05/19 11:22:53] root INFO: PostProcess : 
+[2021/05/19 11:22:53] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:22:53] root INFO: Train : 
+[2021/05/19 11:22:53] root INFO:     dataset : 
+[2021/05/19 11:22:53] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:22:53] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:22:53] root INFO:         name : SimpleDataSet
+[2021/05/19 11:22:53] root INFO:         transforms : 
+[2021/05/19 11:22:53] root INFO:             DecodeImage : 
+[2021/05/19 11:22:53] root INFO:                 channel_first : False
+[2021/05/19 11:22:53] root INFO:                 img_mode : BGR
+[2021/05/19 11:22:53] root INFO:             RecAug : None
+[2021/05/19 11:22:53] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:22:53] root INFO:             RecResizeImg : 
+[2021/05/19 11:22:53] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:22:53] root INFO:             KeepKeys : 
+[2021/05/19 11:22:53] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:22:53] root INFO:     loader : 
+[2021/05/19 11:22:53] root INFO:         batch_size_per_card : 224
+[2021/05/19 11:22:53] root INFO:         drop_last : True
+[2021/05/19 11:22:53] root INFO:         num_workers : 8
+[2021/05/19 11:22:53] root INFO:         shuffle : True
+[2021/05/19 11:22:53] root INFO: train with paddle 2.0.2 and device CUDAPlace(5)
+W0519 11:22:53.261260 97289 nccl_context.cc:142] Socket connect worker 127.0.0.1:37823 failed, try again after 3 seconds.
+I0519 11:22:56.261459 97289 nccl_context.cc:189] init nccl context nranks: 2 local rank: 0 gpu id: 5 ring id: 0
+W0519 11:22:56.870934 97289 device_context.cc:362] Please NOTE: device: 5, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:22:56.879034 97289 device_context.cc:372] device: 5, cuDNN Version: 7.6.
+[2021/05/19 11:23:00] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:23:00] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:23:00,619 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:23:00] root INFO: train from scratch
+[2021/05/19 11:23:00] root INFO: train dataloader has 223 iters
+[2021/05/19 11:23:00] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:23:00] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:23:00] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+Traceback (most recent call last):
+  File "tools/train.py", line 126, in <module>
+    main(config, device, logger, vdl_writer)
+  File "tools/train.py", line 103, in main
+    eval_class, pre_best_model_dict, logger, vdl_writer)
+  File "/data/data/ppocr_mh/work/PaddleOCR/tools/program.py", line 230, in train
+    post_result = post_process_class(preds, batch[1])
+  File "/data/data/ppocr_mh/work/PaddleOCR/ppocr/postprocess/rec_postprocess.py", line 114, in __call__
+    preds = preds.numpy()
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/multiprocess_utils.py", line 134, in __handler__
+    core._throw_error_if_process_failed()
+SystemError: (Fatal) DataLoader process (pid 97604) exited is killed by signal: Killed. (at /paddle/paddle/fluid/imperative/data_loader.cc:165)
+
+!!!!!!!!!ok: 5
+[2021/05/19 11:25:09] root INFO: Architecture : 
+[2021/05/19 11:25:09] root INFO:     Backbone : 
+[2021/05/19 11:25:09] root INFO:         model_name : small
+[2021/05/19 11:25:09] root INFO:         name : MobileNetV3
+[2021/05/19 11:25:09] root INFO:         scale : 0.5
+[2021/05/19 11:25:09] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:25:09] root INFO:     Head : 
+[2021/05/19 11:25:09] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:25:09] root INFO:         name : CTCHead
+[2021/05/19 11:25:09] root INFO:     Neck : 
+[2021/05/19 11:25:09] root INFO:         encoder_type : rnn
+[2021/05/19 11:25:09] root INFO:         hidden_size : 48
+[2021/05/19 11:25:09] root INFO:         name : SequenceEncoder
+[2021/05/19 11:25:09] root INFO:     Transform : None
+[2021/05/19 11:25:09] root INFO:     algorithm : CRNN
+[2021/05/19 11:25:09] root INFO:     model_type : rec
+[2021/05/19 11:25:09] root INFO: Eval : 
+[2021/05/19 11:25:09] root INFO:     dataset : 
+[2021/05/19 11:25:09] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:25:09] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:25:09] root INFO:         name : SimpleDataSet
+[2021/05/19 11:25:09] root INFO:         transforms : 
+[2021/05/19 11:25:09] root INFO:             DecodeImage : 
+[2021/05/19 11:25:09] root INFO:                 channel_first : False
+[2021/05/19 11:25:09] root INFO:                 img_mode : BGR
+[2021/05/19 11:25:09] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:25:09] root INFO:             RecResizeImg : 
+[2021/05/19 11:25:09] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:25:09] root INFO:             KeepKeys : 
+[2021/05/19 11:25:09] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:25:09] root INFO:     loader : 
+[2021/05/19 11:25:09] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:25:09] root INFO:         drop_last : False
+[2021/05/19 11:25:09] root INFO:         num_workers : 8
+[2021/05/19 11:25:09] root INFO:         shuffle : False
+[2021/05/19 11:25:09] root INFO: Global : 
+[2021/05/19 11:25:09] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:25:09] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:25:09] root INFO:     character_type : ch
+[2021/05/19 11:25:09] root INFO:     checkpoints : None
+[2021/05/19 11:25:09] root INFO:     debug : False
+[2021/05/19 11:25:09] root INFO:     distributed : True
+[2021/05/19 11:25:09] root INFO:     epoch_num : 500
+[2021/05/19 11:25:09] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:25:09] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:25:09] root INFO:     infer_mode : False
+[2021/05/19 11:25:09] root INFO:     log_smooth_window : 20
+[2021/05/19 11:25:09] root INFO:     max_text_length : 25
+[2021/05/19 11:25:09] root INFO:     pretrained_model : None
+[2021/05/19 11:25:09] root INFO:     print_batch_step : 10
+[2021/05/19 11:25:09] root INFO:     save_epoch_step : 3
+[2021/05/19 11:25:09] root INFO:     save_inference_dir : None
+[2021/05/19 11:25:09] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:25:09] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:25:09] root INFO:     use_gpu : True
+[2021/05/19 11:25:09] root INFO:     use_space_char : True
+[2021/05/19 11:25:09] root INFO:     use_visualdl : False
+[2021/05/19 11:25:09] root INFO: Loss : 
+[2021/05/19 11:25:09] root INFO:     name : CTCLoss
+[2021/05/19 11:25:09] root INFO: Metric : 
+[2021/05/19 11:25:09] root INFO:     main_indicator : acc
+[2021/05/19 11:25:09] root INFO:     name : RecMetric
+[2021/05/19 11:25:09] root INFO: Optimizer : 
+[2021/05/19 11:25:09] root INFO:     beta1 : 0.9
+[2021/05/19 11:25:09] root INFO:     beta2 : 0.999
+[2021/05/19 11:25:09] root INFO:     lr : 
+[2021/05/19 11:25:09] root INFO:         learning_rate : 0.001
+[2021/05/19 11:25:09] root INFO:         name : Cosine
+[2021/05/19 11:25:09] root INFO:     name : Adam
+[2021/05/19 11:25:09] root INFO:     regularizer : 
+[2021/05/19 11:25:09] root INFO:         factor : 1e-05
+[2021/05/19 11:25:09] root INFO:         name : L2
+[2021/05/19 11:25:09] root INFO: PostProcess : 
+[2021/05/19 11:25:09] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:25:09] root INFO: Train : 
+[2021/05/19 11:25:09] root INFO:     dataset : 
+[2021/05/19 11:25:09] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:25:09] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:25:09] root INFO:         name : SimpleDataSet
+[2021/05/19 11:25:09] root INFO:         transforms : 
+[2021/05/19 11:25:09] root INFO:             DecodeImage : 
+[2021/05/19 11:25:09] root INFO:                 channel_first : False
+[2021/05/19 11:25:09] root INFO:                 img_mode : BGR
+[2021/05/19 11:25:09] root INFO:             RecAug : None
+[2021/05/19 11:25:09] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:25:09] root INFO:             RecResizeImg : 
+[2021/05/19 11:25:09] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:25:09] root INFO:             KeepKeys : 
+[2021/05/19 11:25:09] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:25:09] root INFO:     loader : 
+[2021/05/19 11:25:09] root INFO:         batch_size_per_card : 224
+[2021/05/19 11:25:09] root INFO:         drop_last : True
+[2021/05/19 11:25:09] root INFO:         num_workers : 8
+[2021/05/19 11:25:09] root INFO:         shuffle : True
+[2021/05/19 11:25:09] root INFO: train with paddle 2.0.2 and device CUDAPlace(5)
+W0519 11:25:09.825335 101480 nccl_context.cc:142] Socket connect worker 127.0.0.1:41789 failed, try again after 3 seconds.
+I0519 11:25:12.825549 101480 nccl_context.cc:189] init nccl context nranks: 2 local rank: 0 gpu id: 5 ring id: 0
+W0519 11:25:13.437490 101480 device_context.cc:362] Please NOTE: device: 5, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:25:13.444913 101480 device_context.cc:372] device: 5, cuDNN Version: 7.6.
+[2021/05/19 11:25:17] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:25:17] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:25:17,323 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:25:17] root INFO: train from scratch
+[2021/05/19 11:25:17] root INFO: train dataloader has 223 iters
+[2021/05/19 11:25:17] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:25:17] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:25:17] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+Traceback (most recent call last):
+  File "tools/train.py", line 126, in <module>
+    main(config, device, logger, vdl_writer)
+  File "tools/train.py", line 103, in main
+    eval_class, pre_best_model_dict, logger, vdl_writer)
+  File "/data/data/ppocr_mh/work/PaddleOCR/tools/program.py", line 213, in train
+    avg_loss.backward()
+  File "<decorator-gen-114>", line 2, in backward
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/wrapped_decorator.py", line 25, in __impl__
+    return wrapped_func(*args, **kwargs)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/framework.py", line 225, in __impl__
+    return func(*args, **kwargs)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/dygraph/varbase_patch_methods.py", line 175, in backward
+    retain_graph)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/multiprocess_utils.py", line 134, in __handler__
+    core._throw_error_if_process_failed()
+SystemError: (Fatal) DataLoader process (pid 101911) exited is killed by signal: Killed. (at /paddle/paddle/fluid/imperative/data_loader.cc:165)
+
+!!!!!!!!!ok: 0
+[2021/05/19 11:25:56] root INFO: Architecture : 
+[2021/05/19 11:25:56] root INFO:     Backbone : 
+[2021/05/19 11:25:56] root INFO:         model_name : small
+[2021/05/19 11:25:56] root INFO:         name : MobileNetV3
+[2021/05/19 11:25:56] root INFO:         scale : 0.5
+[2021/05/19 11:25:56] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:25:56] root INFO:     Head : 
+[2021/05/19 11:25:56] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:25:56] root INFO:         name : CTCHead
+[2021/05/19 11:25:56] root INFO:     Neck : 
+[2021/05/19 11:25:56] root INFO:         encoder_type : rnn
+[2021/05/19 11:25:56] root INFO:         hidden_size : 48
+[2021/05/19 11:25:56] root INFO:         name : SequenceEncoder
+[2021/05/19 11:25:56] root INFO:     Transform : None
+[2021/05/19 11:25:56] root INFO:     algorithm : CRNN
+[2021/05/19 11:25:56] root INFO:     model_type : rec
+[2021/05/19 11:25:56] root INFO: Eval : 
+[2021/05/19 11:25:56] root INFO:     dataset : 
+[2021/05/19 11:25:56] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:25:56] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:25:56] root INFO:         name : SimpleDataSet
+[2021/05/19 11:25:56] root INFO:         transforms : 
+[2021/05/19 11:25:56] root INFO:             DecodeImage : 
+[2021/05/19 11:25:56] root INFO:                 channel_first : False
+[2021/05/19 11:25:56] root INFO:                 img_mode : BGR
+[2021/05/19 11:25:56] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:25:56] root INFO:             RecResizeImg : 
+[2021/05/19 11:25:56] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:25:56] root INFO:             KeepKeys : 
+[2021/05/19 11:25:56] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:25:56] root INFO:     loader : 
+[2021/05/19 11:25:56] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:25:56] root INFO:         drop_last : False
+[2021/05/19 11:25:56] root INFO:         num_workers : 8
+[2021/05/19 11:25:56] root INFO:         shuffle : False
+[2021/05/19 11:25:56] root INFO: Global : 
+[2021/05/19 11:25:56] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:25:56] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:25:56] root INFO:     character_type : ch
+[2021/05/19 11:25:56] root INFO:     checkpoints : None
+[2021/05/19 11:25:56] root INFO:     debug : False
+[2021/05/19 11:25:56] root INFO:     distributed : True
+[2021/05/19 11:25:56] root INFO:     epoch_num : 500
+[2021/05/19 11:25:56] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:25:56] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:25:56] root INFO:     infer_mode : False
+[2021/05/19 11:25:56] root INFO:     log_smooth_window : 20
+[2021/05/19 11:25:56] root INFO:     max_text_length : 25
+[2021/05/19 11:25:56] root INFO:     pretrained_model : None
+[2021/05/19 11:25:56] root INFO:     print_batch_step : 10
+[2021/05/19 11:25:56] root INFO:     save_epoch_step : 3
+[2021/05/19 11:25:56] root INFO:     save_inference_dir : None
+[2021/05/19 11:25:56] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:25:56] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:25:56] root INFO:     use_gpu : True
+[2021/05/19 11:25:56] root INFO:     use_space_char : True
+[2021/05/19 11:25:56] root INFO:     use_visualdl : False
+[2021/05/19 11:25:56] root INFO: Loss : 
+[2021/05/19 11:25:56] root INFO:     name : CTCLoss
+[2021/05/19 11:25:56] root INFO: Metric : 
+[2021/05/19 11:25:56] root INFO:     main_indicator : acc
+[2021/05/19 11:25:56] root INFO:     name : RecMetric
+[2021/05/19 11:25:56] root INFO: Optimizer : 
+[2021/05/19 11:25:56] root INFO:     beta1 : 0.9
+[2021/05/19 11:25:56] root INFO:     beta2 : 0.999
+[2021/05/19 11:25:56] root INFO:     lr : 
+[2021/05/19 11:25:56] root INFO:         learning_rate : 0.001
+[2021/05/19 11:25:56] root INFO:         name : Cosine
+[2021/05/19 11:25:56] root INFO:     name : Adam
+[2021/05/19 11:25:56] root INFO:     regularizer : 
+[2021/05/19 11:25:56] root INFO:         factor : 1e-05
+[2021/05/19 11:25:56] root INFO:         name : L2
+[2021/05/19 11:25:56] root INFO: PostProcess : 
+[2021/05/19 11:25:56] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:25:56] root INFO: Train : 
+[2021/05/19 11:25:56] root INFO:     dataset : 
+[2021/05/19 11:25:56] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:25:56] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:25:56] root INFO:         name : SimpleDataSet
+[2021/05/19 11:25:56] root INFO:         transforms : 
+[2021/05/19 11:25:56] root INFO:             DecodeImage : 
+[2021/05/19 11:25:56] root INFO:                 channel_first : False
+[2021/05/19 11:25:56] root INFO:                 img_mode : BGR
+[2021/05/19 11:25:56] root INFO:             RecAug : None
+[2021/05/19 11:25:56] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:25:56] root INFO:             RecResizeImg : 
+[2021/05/19 11:25:56] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:25:56] root INFO:             KeepKeys : 
+[2021/05/19 11:25:56] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:25:56] root INFO:     loader : 
+[2021/05/19 11:25:56] root INFO:         batch_size_per_card : 224
+[2021/05/19 11:25:56] root INFO:         drop_last : True
+[2021/05/19 11:25:56] root INFO:         num_workers : 8
+[2021/05/19 11:25:56] root INFO:         shuffle : True
+[2021/05/19 11:25:56] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+[2021/05/19 11:25:56] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:25:56] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+W0519 11:25:56.902746 103740 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:25:56.911870 103740 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+2021-05-19 11:26:00,343 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:26:00] root INFO: train from scratch
+[2021/05/19 11:26:00] root INFO: train dataloader has 446 iters
+[2021/05/19 11:26:00] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:26:00] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:26:00] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:26:14] root INFO: epoch: [1/500], iter: 10, lr: 0.001000, loss: 613.391113, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.23751 s, batch_cost: 0.78916 s, samples: 2464, ips: 312.23174
+[2021/05/19 11:26:26] root INFO: epoch: [1/500], iter: 20, lr: 0.001000, loss: 489.306763, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00155 s, batch_cost: 0.47045 s, samples: 2240, ips: 476.14371
+[2021/05/19 11:26:39] root INFO: epoch: [1/500], iter: 30, lr: 0.001000, loss: 249.169418, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00185 s, batch_cost: 0.47137 s, samples: 2240, ips: 475.21142
+[2021/05/19 11:26:51] root INFO: epoch: [1/500], iter: 40, lr: 0.001000, loss: 86.525543, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00184 s, batch_cost: 0.47133 s, samples: 2240, ips: 475.25271
+[2021/05/19 11:27:03] root INFO: epoch: [1/500], iter: 50, lr: 0.001000, loss: 47.650490, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00186 s, batch_cost: 0.47024 s, samples: 2240, ips: 476.35267
+[2021/05/19 11:27:14] root INFO: epoch: [1/500], iter: 60, lr: 0.001000, loss: 43.938705, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00180 s, batch_cost: 0.46882 s, samples: 2240, ips: 477.79933
+[2021/05/19 11:27:25] root INFO: epoch: [1/500], iter: 70, lr: 0.001000, loss: 42.431545, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00179 s, batch_cost: 0.46804 s, samples: 2240, ips: 478.58656
+[2021/05/19 11:27:36] root INFO: epoch: [1/500], iter: 80, lr: 0.001000, loss: 41.529514, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00175 s, batch_cost: 0.46799 s, samples: 2240, ips: 478.63820
+[2021/05/19 11:27:46] root INFO: epoch: [1/500], iter: 90, lr: 0.001000, loss: 41.199886, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00175 s, batch_cost: 0.46765 s, samples: 2240, ips: 478.98573
+[2021/05/19 11:27:56] root INFO: epoch: [1/500], iter: 100, lr: 0.001000, loss: 41.532722, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00141 s, batch_cost: 0.46829 s, samples: 2240, ips: 478.33469
+[2021/05/19 11:28:06] root INFO: epoch: [1/500], iter: 110, lr: 0.001000, loss: 39.542992, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00124 s, batch_cost: 0.46898 s, samples: 2240, ips: 477.62995
+[2021/05/19 11:28:15] root INFO: epoch: [1/500], iter: 120, lr: 0.001000, loss: 39.727715, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00190 s, batch_cost: 0.46961 s, samples: 2240, ips: 476.99404
+[2021/05/19 11:28:24] root INFO: epoch: [1/500], iter: 130, lr: 0.001000, loss: 39.700428, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00180 s, batch_cost: 0.46975 s, samples: 2240, ips: 476.84515
+[2021/05/19 11:28:33] root INFO: epoch: [1/500], iter: 140, lr: 0.001000, loss: 40.219692, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00174 s, batch_cost: 0.46943 s, samples: 2240, ips: 477.17532
+[2021/05/19 11:28:42] root INFO: epoch: [1/500], iter: 150, lr: 0.001000, loss: 40.272583, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00165 s, batch_cost: 0.46955 s, samples: 2240, ips: 477.05212
+[2021/05/19 11:28:51] root INFO: epoch: [1/500], iter: 160, lr: 0.001000, loss: 40.175049, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00183 s, batch_cost: 0.46836 s, samples: 2240, ips: 478.26921
+[2021/05/19 11:29:00] root INFO: epoch: [1/500], iter: 170, lr: 0.001000, loss: 40.228790, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00154 s, batch_cost: 0.47011 s, samples: 2240, ips: 476.48651
+[2021/05/19 11:29:09] root INFO: epoch: [1/500], iter: 180, lr: 0.001000, loss: 39.488579, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00175 s, batch_cost: 0.47166 s, samples: 2240, ips: 474.91977
+[2021/05/19 11:29:18] root INFO: epoch: [1/500], iter: 190, lr: 0.001000, loss: 39.507164, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00188 s, batch_cost: 0.47069 s, samples: 2240, ips: 475.90144
+[2021/05/19 11:29:27] root INFO: epoch: [1/500], iter: 200, lr: 0.001000, loss: 40.274773, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00169 s, batch_cost: 0.46962 s, samples: 2240, ips: 476.98268
+[2021/05/19 11:29:36] root INFO: epoch: [1/500], iter: 210, lr: 0.001000, loss: 39.542603, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00183 s, batch_cost: 0.47041 s, samples: 2240, ips: 476.18386
+[2021/05/19 11:29:44] root INFO: epoch: [1/500], iter: 220, lr: 0.001000, loss: 39.542603, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00174 s, batch_cost: 0.47118 s, samples: 2240, ips: 475.39844
+[2021/05/19 11:29:53] root INFO: epoch: [1/500], iter: 230, lr: 0.001000, loss: 39.158691, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00182 s, batch_cost: 0.47205 s, samples: 2240, ips: 474.52428
+[2021/05/19 11:30:02] root INFO: epoch: [1/500], iter: 240, lr: 0.001000, loss: 38.654499, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00190 s, batch_cost: 0.47151 s, samples: 2240, ips: 475.07142
+[2021/05/19 11:30:12] root INFO: epoch: [1/500], iter: 250, lr: 0.001000, loss: 38.563995, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00197 s, batch_cost: 0.47147 s, samples: 2240, ips: 475.11169
+[2021/05/19 11:30:21] root INFO: epoch: [1/500], iter: 260, lr: 0.001000, loss: 38.731823, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00184 s, batch_cost: 0.47340 s, samples: 2240, ips: 473.16941
+[2021/05/19 11:30:30] root INFO: epoch: [1/500], iter: 270, lr: 0.001000, loss: 38.719734, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00191 s, batch_cost: 0.46894 s, samples: 2240, ips: 477.67415
+[2021/05/19 11:30:38] root INFO: epoch: [1/500], iter: 280, lr: 0.001000, loss: 38.782104, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00185 s, batch_cost: 0.46912 s, samples: 2240, ips: 477.48647
+[2021/05/19 11:30:47] root INFO: epoch: [1/500], iter: 290, lr: 0.001000, loss: 39.042683, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00185 s, batch_cost: 0.46818 s, samples: 2240, ips: 478.45015
+[2021/05/19 11:30:56] root INFO: epoch: [1/500], iter: 300, lr: 0.001000, loss: 38.828346, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00163 s, batch_cost: 0.46836 s, samples: 2240, ips: 478.26106
+[2021/05/19 11:31:05] root INFO: epoch: [1/500], iter: 310, lr: 0.001000, loss: 37.863892, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00177 s, batch_cost: 0.47172 s, samples: 2240, ips: 474.85873
+[2021/05/19 11:31:14] root INFO: epoch: [1/500], iter: 320, lr: 0.001000, loss: 37.271111, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00148 s, batch_cost: 0.47131 s, samples: 2240, ips: 475.27060
+[2021/05/19 11:31:23] root INFO: epoch: [1/500], iter: 330, lr: 0.001000, loss: 38.742691, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00113 s, batch_cost: 0.47056 s, samples: 2240, ips: 476.02632
+[2021/05/19 11:31:32] root INFO: epoch: [1/500], iter: 340, lr: 0.001000, loss: 38.943951, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00131 s, batch_cost: 0.47097 s, samples: 2240, ips: 475.61634
+[2021/05/19 11:31:41] root INFO: epoch: [1/500], iter: 350, lr: 0.001000, loss: 38.055725, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00189 s, batch_cost: 0.47175 s, samples: 2240, ips: 474.82379
+[2021/05/19 11:31:50] root INFO: epoch: [1/500], iter: 360, lr: 0.001000, loss: 37.778889, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00170 s, batch_cost: 0.47117 s, samples: 2240, ips: 475.41487
+!!!!!!!!!ok: 0
+[2021/05/19 11:31:57] root INFO: Architecture : 
+[2021/05/19 11:31:57] root INFO:     Backbone : 
+[2021/05/19 11:31:57] root INFO:         model_name : small
+[2021/05/19 11:31:57] root INFO:         name : MobileNetV3
+[2021/05/19 11:31:57] root INFO:         scale : 0.5
+[2021/05/19 11:31:57] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:31:57] root INFO:     Head : 
+[2021/05/19 11:31:57] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:31:57] root INFO:         name : CTCHead
+[2021/05/19 11:31:57] root INFO:     Neck : 
+[2021/05/19 11:31:57] root INFO:         encoder_type : rnn
+[2021/05/19 11:31:57] root INFO:         hidden_size : 48
+[2021/05/19 11:31:57] root INFO:         name : SequenceEncoder
+[2021/05/19 11:31:57] root INFO:     Transform : None
+[2021/05/19 11:31:57] root INFO:     algorithm : CRNN
+[2021/05/19 11:31:57] root INFO:     model_type : rec
+[2021/05/19 11:31:57] root INFO: Eval : 
+[2021/05/19 11:31:57] root INFO:     dataset : 
+[2021/05/19 11:31:57] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:31:57] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:31:57] root INFO:         name : SimpleDataSet
+[2021/05/19 11:31:57] root INFO:         transforms : 
+[2021/05/19 11:31:57] root INFO:             DecodeImage : 
+[2021/05/19 11:31:57] root INFO:                 channel_first : False
+[2021/05/19 11:31:57] root INFO:                 img_mode : BGR
+[2021/05/19 11:31:57] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:31:57] root INFO:             RecResizeImg : 
+[2021/05/19 11:31:57] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:31:57] root INFO:             KeepKeys : 
+[2021/05/19 11:31:57] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:31:57] root INFO:     loader : 
+[2021/05/19 11:31:57] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:31:57] root INFO:         drop_last : False
+[2021/05/19 11:31:57] root INFO:         num_workers : 8
+[2021/05/19 11:31:57] root INFO:         shuffle : False
+[2021/05/19 11:31:57] root INFO: Global : 
+[2021/05/19 11:31:57] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:31:57] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:31:57] root INFO:     character_type : ch
+[2021/05/19 11:31:57] root INFO:     checkpoints : None
+[2021/05/19 11:31:57] root INFO:     debug : False
+[2021/05/19 11:31:57] root INFO:     distributed : True
+[2021/05/19 11:31:57] root INFO:     epoch_num : 500
+[2021/05/19 11:31:57] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:31:57] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:31:57] root INFO:     infer_mode : False
+[2021/05/19 11:31:57] root INFO:     log_smooth_window : 20
+[2021/05/19 11:31:57] root INFO:     max_text_length : 25
+[2021/05/19 11:31:57] root INFO:     pretrained_model : None
+[2021/05/19 11:31:57] root INFO:     print_batch_step : 10
+[2021/05/19 11:31:57] root INFO:     save_epoch_step : 3
+[2021/05/19 11:31:57] root INFO:     save_inference_dir : None
+[2021/05/19 11:31:57] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:31:57] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:31:57] root INFO:     use_gpu : True
+[2021/05/19 11:31:57] root INFO:     use_space_char : True
+[2021/05/19 11:31:57] root INFO:     use_visualdl : False
+[2021/05/19 11:31:57] root INFO: Loss : 
+[2021/05/19 11:31:57] root INFO:     name : CTCLoss
+[2021/05/19 11:31:57] root INFO: Metric : 
+[2021/05/19 11:31:57] root INFO:     main_indicator : acc
+[2021/05/19 11:31:57] root INFO:     name : RecMetric
+[2021/05/19 11:31:57] root INFO: Optimizer : 
+[2021/05/19 11:31:57] root INFO:     beta1 : 0.9
+[2021/05/19 11:31:57] root INFO:     beta2 : 0.999
+[2021/05/19 11:31:57] root INFO:     lr : 
+[2021/05/19 11:31:57] root INFO:         learning_rate : 0.001
+[2021/05/19 11:31:57] root INFO:         name : Cosine
+[2021/05/19 11:31:57] root INFO:     name : Adam
+[2021/05/19 11:31:57] root INFO:     regularizer : 
+[2021/05/19 11:31:57] root INFO:         factor : 1e-05
+[2021/05/19 11:31:57] root INFO:         name : L2
+[2021/05/19 11:31:57] root INFO: PostProcess : 
+[2021/05/19 11:31:57] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:31:57] root INFO: Train : 
+[2021/05/19 11:31:57] root INFO:     dataset : 
+[2021/05/19 11:31:57] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:31:57] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:31:57] root INFO:         name : SimpleDataSet
+[2021/05/19 11:31:57] root INFO:         transforms : 
+[2021/05/19 11:31:57] root INFO:             DecodeImage : 
+[2021/05/19 11:31:57] root INFO:                 channel_first : False
+[2021/05/19 11:31:57] root INFO:                 img_mode : BGR
+[2021/05/19 11:31:57] root INFO:             RecAug : None
+[2021/05/19 11:31:57] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:31:57] root INFO:             RecResizeImg : 
+[2021/05/19 11:31:57] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:31:57] root INFO:             KeepKeys : 
+[2021/05/19 11:31:57] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:31:57] root INFO:     loader : 
+[2021/05/19 11:31:57] root INFO:         batch_size_per_card : 224
+[2021/05/19 11:31:57] root INFO:         drop_last : True
+[2021/05/19 11:31:57] root INFO:         num_workers : 8
+[2021/05/19 11:31:57] root INFO:         shuffle : True
+[2021/05/19 11:31:57] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0519 11:31:57.546180   219 nccl_context.cc:189] init nccl context nranks: 4 local rank: 0 gpu id: 0 ring id: 0
+W0519 11:31:58.595470   219 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:31:58.657383   219 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/05/19 11:31:59] root INFO: epoch: [1/500], iter: 370, lr: 0.001000, loss: 39.660423, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00115 s, batch_cost: 0.46941 s, samples: 2240, ips: 477.19057
+[2021/05/19 11:32:02] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:32:02] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:32:02,988 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:32:02] root INFO: train from scratch
+[2021/05/19 11:32:02] root INFO: train dataloader has 111 iters
+[2021/05/19 11:32:02] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:32:02] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:32:03] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:32:08] root INFO: epoch: [1/500], iter: 380, lr: 0.001000, loss: 38.053398, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00100 s, batch_cost: 0.47501 s, samples: 2240, ips: 471.57152
+[2021/05/19 11:32:17] root INFO: epoch: [1/500], iter: 390, lr: 0.001000, loss: 37.779404, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00190 s, batch_cost: 0.47147 s, samples: 2240, ips: 475.11337
+[2021/05/19 11:32:26] root INFO: epoch: [1/500], iter: 400, lr: 0.001000, loss: 38.416733, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00177 s, batch_cost: 0.46864 s, samples: 2240, ips: 477.98239
+[2021/05/19 11:32:35] root INFO: epoch: [1/500], iter: 410, lr: 0.001000, loss: 38.442562, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00134 s, batch_cost: 0.46932 s, samples: 2240, ips: 477.28834
+[2021/05/19 11:32:37] root INFO: epoch: [1/500], iter: 10, lr: 0.001000, loss: 612.348206, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.49111 s, batch_cost: 1.62614 s, samples: 2464, ips: 151.52456
+[2021/05/19 11:32:44] root INFO: epoch: [1/500], iter: 420, lr: 0.001000, loss: 38.483887, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00098 s, batch_cost: 0.46887 s, samples: 2240, ips: 477.74150
+[2021/05/19 11:32:53] root INFO: epoch: [1/500], iter: 430, lr: 0.001000, loss: 38.684006, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00100 s, batch_cost: 0.47200 s, samples: 2240, ips: 474.57473
+[2021/05/19 11:32:58] root INFO: epoch: [1/500], iter: 20, lr: 0.001000, loss: 488.827332, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00160 s, batch_cost: 0.69295 s, samples: 2240, ips: 323.25798
+[2021/05/19 11:33:03] root INFO: epoch: [1/500], iter: 440, lr: 0.001000, loss: 38.560349, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00009 s, batch_cost: 0.47013 s, samples: 2240, ips: 476.46348
+[2021/05/19 11:33:07] root INFO: epoch: [1/500], iter: 445, lr: 0.001000, loss: 37.869686, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00005 s, batch_cost: 0.23514 s, samples: 1120, ips: 476.31065
+[2021/05/19 11:33:08] root INFO: save model in ./output/rec_chinese_lite_v2.0/latest
+[2021/05/19 11:33:08] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:33:20] root INFO: epoch: [2/500], iter: 450, lr: 0.001000, loss: 38.469200, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.22120 s, batch_cost: 0.50819 s, samples: 1120, ips: 220.39066
+[2021/05/19 11:33:21] root INFO: epoch: [1/500], iter: 30, lr: 0.001000, loss: 244.345245, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00152 s, batch_cost: 0.70166 s, samples: 2240, ips: 319.24414
+[2021/05/19 11:33:40] root INFO: epoch: [2/500], iter: 460, lr: 0.001000, loss: 37.733322, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00204 s, batch_cost: 0.48820 s, samples: 2240, ips: 458.83037
+main proc 113948 exit, kill process group 103723
+main proc 113949 exit, kill process group 103723
+main proc 113957 exit, kill process group 103723
+main proc 113937 exit, kill process group 103723
+main proc 113970 exit, kill process group 103723
+main proc 113917 exit, kill process group 103723
+main proc 113963 exit, kill process group 103723
+main proc 113969 exit, kill process group 103723
+[2021/05/19 11:33:43] root INFO: epoch: [1/500], iter: 40, lr: 0.001000, loss: 86.497208, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00156 s, batch_cost: 0.71135 s, samples: 2240, ips: 314.89618
+!!!!!!!!!ok: 5
+[2021/05/19 11:34:00] root INFO: Architecture : 
+[2021/05/19 11:34:00] root INFO:     Backbone : 
+[2021/05/19 11:34:00] root INFO:         model_name : small
+[2021/05/19 11:34:00] root INFO:         name : MobileNetV3
+[2021/05/19 11:34:00] root INFO:         scale : 0.5
+[2021/05/19 11:34:00] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/05/19 11:34:00] root INFO:     Head : 
+[2021/05/19 11:34:00] root INFO:         fc_decay : 1e-05
+[2021/05/19 11:34:00] root INFO:         name : CTCHead
+[2021/05/19 11:34:00] root INFO:     Neck : 
+[2021/05/19 11:34:00] root INFO:         encoder_type : rnn
+[2021/05/19 11:34:00] root INFO:         hidden_size : 48
+[2021/05/19 11:34:00] root INFO:         name : SequenceEncoder
+[2021/05/19 11:34:00] root INFO:     Transform : None
+[2021/05/19 11:34:00] root INFO:     algorithm : CRNN
+[2021/05/19 11:34:00] root INFO:     model_type : rec
+[2021/05/19 11:34:00] root INFO: Eval : 
+[2021/05/19 11:34:00] root INFO:     dataset : 
+[2021/05/19 11:34:00] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:34:00] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:34:00] root INFO:         name : SimpleDataSet
+[2021/05/19 11:34:00] root INFO:         transforms : 
+[2021/05/19 11:34:00] root INFO:             DecodeImage : 
+[2021/05/19 11:34:00] root INFO:                 channel_first : False
+[2021/05/19 11:34:00] root INFO:                 img_mode : BGR
+[2021/05/19 11:34:00] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:34:00] root INFO:             RecResizeImg : 
+[2021/05/19 11:34:00] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:34:00] root INFO:             KeepKeys : 
+[2021/05/19 11:34:00] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:34:00] root INFO:     loader : 
+[2021/05/19 11:34:00] root INFO:         batch_size_per_card : 512
+[2021/05/19 11:34:00] root INFO:         drop_last : False
+[2021/05/19 11:34:00] root INFO:         num_workers : 8
+[2021/05/19 11:34:00] root INFO:         shuffle : False
+[2021/05/19 11:34:00] root INFO: Global : 
+[2021/05/19 11:34:00] root INFO:     cal_metric_during_train : True
+[2021/05/19 11:34:00] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/05/19 11:34:00] root INFO:     character_type : ch
+[2021/05/19 11:34:00] root INFO:     checkpoints : None
+[2021/05/19 11:34:00] root INFO:     debug : False
+[2021/05/19 11:34:00] root INFO:     distributed : True
+[2021/05/19 11:34:00] root INFO:     epoch_num : 500
+[2021/05/19 11:34:00] root INFO:     eval_batch_step : [0, 2000]
+[2021/05/19 11:34:00] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/05/19 11:34:00] root INFO:     infer_mode : False
+[2021/05/19 11:34:00] root INFO:     log_smooth_window : 20
+[2021/05/19 11:34:00] root INFO:     max_text_length : 25
+[2021/05/19 11:34:00] root INFO:     pretrained_model : None
+[2021/05/19 11:34:00] root INFO:     print_batch_step : 10
+[2021/05/19 11:34:00] root INFO:     save_epoch_step : 3
+[2021/05/19 11:34:00] root INFO:     save_inference_dir : None
+[2021/05/19 11:34:00] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0
+[2021/05/19 11:34:00] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0.txt
+[2021/05/19 11:34:00] root INFO:     use_gpu : True
+[2021/05/19 11:34:00] root INFO:     use_space_char : True
+[2021/05/19 11:34:00] root INFO:     use_visualdl : False
+[2021/05/19 11:34:00] root INFO: Loss : 
+[2021/05/19 11:34:00] root INFO:     name : CTCLoss
+[2021/05/19 11:34:00] root INFO: Metric : 
+[2021/05/19 11:34:00] root INFO:     main_indicator : acc
+[2021/05/19 11:34:00] root INFO:     name : RecMetric
+[2021/05/19 11:34:00] root INFO: Optimizer : 
+[2021/05/19 11:34:00] root INFO:     beta1 : 0.9
+[2021/05/19 11:34:00] root INFO:     beta2 : 0.999
+[2021/05/19 11:34:00] root INFO:     lr : 
+[2021/05/19 11:34:00] root INFO:         learning_rate : 0.001
+[2021/05/19 11:34:00] root INFO:         name : Cosine
+[2021/05/19 11:34:00] root INFO:     name : Adam
+[2021/05/19 11:34:00] root INFO:     regularizer : 
+[2021/05/19 11:34:00] root INFO:         factor : 1e-05
+[2021/05/19 11:34:00] root INFO:         name : L2
+[2021/05/19 11:34:00] root INFO: PostProcess : 
+[2021/05/19 11:34:00] root INFO:     name : CTCLabelDecode
+[2021/05/19 11:34:00] root INFO: Train : 
+[2021/05/19 11:34:00] root INFO:     dataset : 
+[2021/05/19 11:34:00] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/05/19 11:34:00] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:34:00] root INFO:         name : SimpleDataSet
+[2021/05/19 11:34:00] root INFO:         transforms : 
+[2021/05/19 11:34:00] root INFO:             DecodeImage : 
+[2021/05/19 11:34:00] root INFO:                 channel_first : False
+[2021/05/19 11:34:00] root INFO:                 img_mode : BGR
+[2021/05/19 11:34:00] root INFO:             RecAug : None
+[2021/05/19 11:34:00] root INFO:             CTCLabelEncode : None
+[2021/05/19 11:34:00] root INFO:             RecResizeImg : 
+[2021/05/19 11:34:00] root INFO:                 image_shape : [3, 32, 320]
+[2021/05/19 11:34:00] root INFO:             KeepKeys : 
+[2021/05/19 11:34:00] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/05/19 11:34:00] root INFO:     loader : 
+[2021/05/19 11:34:00] root INFO:         batch_size_per_card : 224
+[2021/05/19 11:34:00] root INFO:         drop_last : True
+[2021/05/19 11:34:00] root INFO:         num_workers : 8
+[2021/05/19 11:34:00] root INFO:         shuffle : True
+[2021/05/19 11:34:00] root INFO: train with paddle 2.0.2 and device CUDAPlace(5)
+W0519 11:34:00.826747 115499 nccl_context.cc:142] Socket connect worker 127.0.0.1:43981 failed, try again after 3 seconds.
+I0519 11:34:03.826967 115499 nccl_context.cc:189] init nccl context nranks: 2 local rank: 0 gpu id: 5 ring id: 0
+W0519 11:34:04.436300 115499 device_context.cc:362] Please NOTE: device: 5, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0519 11:34:04.440186 115499 device_context.cc:372] device: 5, cuDNN Version: 7.6.
+[2021/05/19 11:34:06] root INFO: epoch: [1/500], iter: 50, lr: 0.001000, loss: 49.001968, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00145 s, batch_cost: 0.71001 s, samples: 2240, ips: 315.48858
+[2021/05/19 11:34:07] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/05/19 11:34:07] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+2021-05-19 11:34:07,820 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/05/19 11:34:07] root INFO: train from scratch
+[2021/05/19 11:34:07] root INFO: train dataloader has 223 iters
+[2021/05/19 11:34:07] root INFO: valid dataloader has 196 iters
+[2021/05/19 11:34:07] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/05/19 11:34:07] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+Traceback (most recent call last):
+  File "tools/train.py", line 126, in <module>
+    main(config, device, logger, vdl_writer)
+  File "tools/train.py", line 103, in main
+    eval_class, pre_best_model_dict, logger, vdl_writer)
+  File "/data/data/ppocr_mh/work/PaddleOCR/tools/program.py", line 213, in train
+    avg_loss.backward()
+  File "<decorator-gen-114>", line 2, in backward
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/wrapped_decorator.py", line 25, in __impl__
+    return wrapped_func(*args, **kwargs)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/framework.py", line 225, in __impl__
+    return func(*args, **kwargs)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/dygraph/varbase_patch_methods.py", line 175, in backward
+    retain_graph)
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/multiprocess_utils.py", line 134, in __handler__
+    core._throw_error_if_process_failed()
+SystemError: (Fatal) DataLoader process (pid 115824) exited is killed by signal: Killed. (at /paddle/paddle/fluid/imperative/data_loader.cc:165)
+
+[2021/05/19 11:34:28] root INFO: epoch: [1/500], iter: 60, lr: 0.001000, loss: 43.633560, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00159 s, batch_cost: 0.75480 s, samples: 2240, ips: 296.76886
+[2021/05/19 11:34:50] root INFO: epoch: [1/500], iter: 70, lr: 0.001000, loss: 42.294708, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00133 s, batch_cost: 0.70995 s, samples: 2240, ips: 315.51557
+[2021/05/19 11:35:12] root INFO: epoch: [1/500], iter: 80, lr: 0.001000, loss: 41.242111, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00144 s, batch_cost: 0.72865 s, samples: 2240, ips: 307.41799
+[2021/05/19 11:35:33] root INFO: epoch: [1/500], iter: 90, lr: 0.001000, loss: 40.052773, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00146 s, batch_cost: 0.74587 s, samples: 2240, ips: 300.31941
+[2021/05/19 11:35:55] root INFO: epoch: [1/500], iter: 100, lr: 0.001000, loss: 40.138702, acc: 0.000000, norm_edit_dis: 0.000000, reader_cost: 0.00092 s, batch_cost: 0.71842 s, samples: 2240, ips: 311.79711
+!!!!!!!!!ok: 0
+[2021/06/15 03:44:12] root INFO: Architecture : 
+[2021/06/15 03:44:12] root INFO:     Backbone : 
+[2021/06/15 03:44:12] root INFO:         name : GhostNet
+[2021/06/15 03:44:12] root INFO:     Head : 
+[2021/06/15 03:44:12] root INFO:         fc_decay : 1e-05
+[2021/06/15 03:44:12] root INFO:         name : CTCHead
+[2021/06/15 03:44:12] root INFO:     Neck : 
+[2021/06/15 03:44:12] root INFO:         encoder_type : rnn
+[2021/06/15 03:44:12] root INFO:         hidden_size : 64
+[2021/06/15 03:44:12] root INFO:         name : SequenceEncoder
+[2021/06/15 03:44:12] root INFO:     Transform : None
+[2021/06/15 03:44:12] root INFO:     algorithm : CRNN
+[2021/06/15 03:44:12] root INFO:     model_type : rec
+[2021/06/15 03:44:12] root INFO: Eval : 
+[2021/06/15 03:44:12] root INFO:     dataset : 
+[2021/06/15 03:44:12] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/06/15 03:44:12] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/06/15 03:44:12] root INFO:         name : SimpleDataSet
+[2021/06/15 03:44:12] root INFO:         transforms : 
+[2021/06/15 03:44:12] root INFO:             DecodeImage : 
+[2021/06/15 03:44:12] root INFO:                 channel_first : False
+[2021/06/15 03:44:12] root INFO:                 img_mode : BGR
+[2021/06/15 03:44:12] root INFO:             CTCLabelEncode : None
+[2021/06/15 03:44:12] root INFO:             RecResizeImg : 
+[2021/06/15 03:44:12] root INFO:                 image_shape : [3, 32, 320]
+[2021/06/15 03:44:12] root INFO:             KeepKeys : 
+[2021/06/15 03:44:12] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/06/15 03:44:12] root INFO:     loader : 
+[2021/06/15 03:44:12] root INFO:         batch_size_per_card : 128
+[2021/06/15 03:44:12] root INFO:         drop_last : False
+[2021/06/15 03:44:12] root INFO:         num_workers : 8
+[2021/06/15 03:44:12] root INFO:         shuffle : False
+[2021/06/15 03:44:12] root INFO: Global : 
+[2021/06/15 03:44:12] root INFO:     cal_metric_during_train : True
+[2021/06/15 03:44:12] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/06/15 03:44:12] root INFO:     character_type : ch
+[2021/06/15 03:44:12] root INFO:     checkpoints : None
+[2021/06/15 03:44:12] root INFO:     debug : False
+[2021/06/15 03:44:12] root INFO:     distributed : True
+[2021/06/15 03:44:12] root INFO:     epoch_num : 500
+[2021/06/15 03:44:12] root INFO:     eval_batch_step : [0, 2000]
+[2021/06/15 03:44:12] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/06/15 03:44:12] root INFO:     infer_mode : False
+[2021/06/15 03:44:12] root INFO:     log_smooth_window : 20
+[2021/06/15 03:44:12] root INFO:     max_text_length : 25
+[2021/06/15 03:44:12] root INFO:     pretrained_model : None
+[2021/06/15 03:44:12] root INFO:     print_batch_step : 10
+[2021/06/15 03:44:12] root INFO:     save_epoch_step : 3
+[2021/06/15 03:44:12] root INFO:     save_inference_dir : None
+[2021/06/15 03:44:12] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0_1.0_cutout_suijipinjie_ghostnet_172
+[2021/06/15 03:44:12] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0_1.0_cutout_suijipinjie_ghostnet_172.txt
+[2021/06/15 03:44:12] root INFO:     use_gpu : True
+[2021/06/15 03:44:12] root INFO:     use_space_char : True
+[2021/06/15 03:44:12] root INFO:     use_visualdl : False
+[2021/06/15 03:44:12] root INFO: Loss : 
+[2021/06/15 03:44:12] root INFO:     name : CTCLoss
+[2021/06/15 03:44:12] root INFO: Metric : 
+[2021/06/15 03:44:12] root INFO:     main_indicator : acc
+[2021/06/15 03:44:12] root INFO:     name : RecMetric
+[2021/06/15 03:44:12] root INFO: Optimizer : 
+[2021/06/15 03:44:12] root INFO:     beta1 : 0.9
+[2021/06/15 03:44:12] root INFO:     beta2 : 0.999
+[2021/06/15 03:44:12] root INFO:     lr : 
+[2021/06/15 03:44:12] root INFO:         learning_rate : 0.001
+[2021/06/15 03:44:12] root INFO:         name : Cosine
+[2021/06/15 03:44:12] root INFO:     name : Adam
+[2021/06/15 03:44:12] root INFO:     regularizer : 
+[2021/06/15 03:44:12] root INFO:         factor : 1e-05
+[2021/06/15 03:44:12] root INFO:         name : L2
+[2021/06/15 03:44:12] root INFO: PostProcess : 
+[2021/06/15 03:44:12] root INFO:     name : CTCLabelDecode
+[2021/06/15 03:44:12] root INFO: Train : 
+[2021/06/15 03:44:12] root INFO:     dataset : 
+[2021/06/15 03:44:12] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/06/15 03:44:12] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/06/15 03:44:12] root INFO:         name : SimpleDataSet
+[2021/06/15 03:44:12] root INFO:         transforms : 
+[2021/06/15 03:44:12] root INFO:             DecodeImage : 
+[2021/06/15 03:44:12] root INFO:                 channel_first : False
+[2021/06/15 03:44:12] root INFO:                 img_mode : BGR
+[2021/06/15 03:44:12] root INFO:             RecAug : None
+[2021/06/15 03:44:12] root INFO:             CTCLabelEncode : None
+[2021/06/15 03:44:12] root INFO:             RecResizeImg : 
+[2021/06/15 03:44:12] root INFO:                 image_shape : [3, 32, 320]
+[2021/06/15 03:44:12] root INFO:             KeepKeys : 
+[2021/06/15 03:44:12] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/06/15 03:44:12] root INFO:     loader : 
+[2021/06/15 03:44:12] root INFO:         batch_size_per_card : 128
+[2021/06/15 03:44:12] root INFO:         drop_last : True
+[2021/06/15 03:44:12] root INFO:         num_workers : 8
+[2021/06/15 03:44:12] root INFO:         shuffle : True
+[2021/06/15 03:44:12] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+I0615 03:44:12.854955 83335 nccl_context.cc:189] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
+W0615 03:44:14.800055 83335 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0615 03:44:14.804297 83335 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+Traceback (most recent call last):
+  File "tools/train.py", line 134, in <module>
+    main(config, device, logger, vdl_writer)
+  File "tools/train.py", line 53, in main
+    dist.init_parallel_env()
+  File "/opt/conda/lib/python3.6/site-packages/paddle/distributed/parallel.py", line 183, in init_parallel_env
+    parallel_helper._set_parallel_ctx(core.NCCLParallelContext(strategy, place))
+  File "/opt/conda/lib/python3.6/site-packages/paddle/fluid/dygraph/parallel_helper.py", line 34, in _set_parallel_ctx
+    "ParallelContext can only be initialized once."
+AssertionError: ParallelContext can only be initialized once.
+!!!!!!!!!ok: 0
+[2021/06/15 03:45:21] root INFO: Architecture : 
+[2021/06/15 03:45:21] root INFO:     Backbone : 
+[2021/06/15 03:45:21] root INFO:         name : GhostNet
+[2021/06/15 03:45:21] root INFO:     Head : 
+[2021/06/15 03:45:21] root INFO:         fc_decay : 1e-05
+[2021/06/15 03:45:21] root INFO:         name : CTCHead
+[2021/06/15 03:45:21] root INFO:     Neck : 
+[2021/06/15 03:45:21] root INFO:         encoder_type : rnn
+[2021/06/15 03:45:21] root INFO:         hidden_size : 64
+[2021/06/15 03:45:21] root INFO:         name : SequenceEncoder
+[2021/06/15 03:45:21] root INFO:     Transform : None
+[2021/06/15 03:45:21] root INFO:     algorithm : CRNN
+[2021/06/15 03:45:21] root INFO:     model_type : rec
+[2021/06/15 03:45:21] root INFO: Eval : 
+[2021/06/15 03:45:21] root INFO:     dataset : 
+[2021/06/15 03:45:21] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/06/15 03:45:21] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/06/15 03:45:21] root INFO:         name : SimpleDataSet
+[2021/06/15 03:45:21] root INFO:         transforms : 
+[2021/06/15 03:45:21] root INFO:             DecodeImage : 
+[2021/06/15 03:45:21] root INFO:                 channel_first : False
+[2021/06/15 03:45:21] root INFO:                 img_mode : BGR
+[2021/06/15 03:45:21] root INFO:             CTCLabelEncode : None
+[2021/06/15 03:45:21] root INFO:             RecResizeImg : 
+[2021/06/15 03:45:21] root INFO:                 image_shape : [3, 32, 320]
+[2021/06/15 03:45:21] root INFO:             KeepKeys : 
+[2021/06/15 03:45:21] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/06/15 03:45:21] root INFO:     loader : 
+[2021/06/15 03:45:21] root INFO:         batch_size_per_card : 128
+[2021/06/15 03:45:21] root INFO:         drop_last : False
+[2021/06/15 03:45:21] root INFO:         num_workers : 8
+[2021/06/15 03:45:21] root INFO:         shuffle : False
+[2021/06/15 03:45:21] root INFO: Global : 
+[2021/06/15 03:45:21] root INFO:     cal_metric_during_train : True
+[2021/06/15 03:45:21] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/06/15 03:45:21] root INFO:     character_type : ch
+[2021/06/15 03:45:21] root INFO:     checkpoints : None
+[2021/06/15 03:45:21] root INFO:     debug : False
+[2021/06/15 03:45:21] root INFO:     distributed : True
+[2021/06/15 03:45:21] root INFO:     epoch_num : 500
+[2021/06/15 03:45:21] root INFO:     eval_batch_step : [0, 2000]
+[2021/06/15 03:45:21] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/06/15 03:45:21] root INFO:     infer_mode : False
+[2021/06/15 03:45:21] root INFO:     log_smooth_window : 20
+[2021/06/15 03:45:21] root INFO:     max_text_length : 25
+[2021/06/15 03:45:21] root INFO:     pretrained_model : None
+[2021/06/15 03:45:21] root INFO:     print_batch_step : 10
+[2021/06/15 03:45:21] root INFO:     save_epoch_step : 3
+[2021/06/15 03:45:21] root INFO:     save_inference_dir : None
+[2021/06/15 03:45:21] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0_1.0_cutout_suijipinjie_ghostnet_172
+[2021/06/15 03:45:21] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0_1.0_cutout_suijipinjie_ghostnet_172.txt
+[2021/06/15 03:45:21] root INFO:     use_gpu : True
+[2021/06/15 03:45:21] root INFO:     use_space_char : True
+[2021/06/15 03:45:21] root INFO:     use_visualdl : False
+[2021/06/15 03:45:21] root INFO: Loss : 
+[2021/06/15 03:45:21] root INFO:     name : CTCLoss
+[2021/06/15 03:45:21] root INFO: Metric : 
+[2021/06/15 03:45:21] root INFO:     main_indicator : acc
+[2021/06/15 03:45:21] root INFO:     name : RecMetric
+[2021/06/15 03:45:21] root INFO: Optimizer : 
+[2021/06/15 03:45:21] root INFO:     beta1 : 0.9
+[2021/06/15 03:45:21] root INFO:     beta2 : 0.999
+[2021/06/15 03:45:21] root INFO:     lr : 
+[2021/06/15 03:45:21] root INFO:         learning_rate : 0.001
+[2021/06/15 03:45:21] root INFO:         name : Cosine
+[2021/06/15 03:45:21] root INFO:     name : Adam
+[2021/06/15 03:45:21] root INFO:     regularizer : 
+[2021/06/15 03:45:21] root INFO:         factor : 1e-05
+[2021/06/15 03:45:21] root INFO:         name : L2
+[2021/06/15 03:45:21] root INFO: PostProcess : 
+[2021/06/15 03:45:21] root INFO:     name : CTCLabelDecode
+[2021/06/15 03:45:21] root INFO: Train : 
+[2021/06/15 03:45:21] root INFO:     dataset : 
+[2021/06/15 03:45:21] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/06/15 03:45:21] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/06/15 03:45:21] root INFO:         name : SimpleDataSet
+[2021/06/15 03:45:21] root INFO:         transforms : 
+[2021/06/15 03:45:21] root INFO:             DecodeImage : 
+[2021/06/15 03:45:21] root INFO:                 channel_first : False
+[2021/06/15 03:45:21] root INFO:                 img_mode : BGR
+[2021/06/15 03:45:21] root INFO:             RecAug : None
+[2021/06/15 03:45:21] root INFO:             CTCLabelEncode : None
+[2021/06/15 03:45:21] root INFO:             RecResizeImg : 
+[2021/06/15 03:45:21] root INFO:                 image_shape : [3, 32, 320]
+[2021/06/15 03:45:21] root INFO:             KeepKeys : 
+[2021/06/15 03:45:21] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/06/15 03:45:21] root INFO:     loader : 
+[2021/06/15 03:45:21] root INFO:         batch_size_per_card : 128
+[2021/06/15 03:45:21] root INFO:         drop_last : True
+[2021/06/15 03:45:21] root INFO:         num_workers : 8
+[2021/06/15 03:45:21] root INFO:         shuffle : True
+[2021/06/15 03:45:21] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+W0615 03:45:21.650358 85077 nccl_context.cc:142] Socket connect worker 127.0.0.1:54282 failed, try again after 3 seconds.
+I0615 03:45:24.650923 85077 nccl_context.cc:189] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
+W0615 03:45:26.739706 85077 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0615 03:45:26.770768 85077 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/06/15 03:45:31] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/06/15 03:45:31] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+{'Total': Tensor(shape=[1], dtype=int64, place=CUDAPlace(0), stop_gradient=False,
+       [1725597])}
+2021-06-15 03:45:31,406 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/06/15 03:45:31] root INFO: train from scratch
+[2021/06/15 03:45:31] root INFO: train dataloader has 97 iters
+[2021/06/15 03:45:31] root INFO: valid dataloader has 782 iters
+[2021/06/15 03:45:31] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/06/15 03:45:31] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+!!!!!!!!!ok: 0
+[2021/06/16 07:36:09] root INFO: Architecture : 
+[2021/06/16 07:36:09] root INFO:     Backbone : 
+[2021/06/16 07:36:09] root INFO:         model_name : small
+[2021/06/16 07:36:09] root INFO:         name : MobileNetV3
+[2021/06/16 07:36:09] root INFO:         scale : 1.0
+[2021/06/16 07:36:09] root INFO:         small_stride : [1, 2, 2, 2]
+[2021/06/16 07:36:09] root INFO:     Head : 
+[2021/06/16 07:36:09] root INFO:         fc_decay : 1e-05
+[2021/06/16 07:36:09] root INFO:         name : CTCHead
+[2021/06/16 07:36:09] root INFO:     Neck : 
+[2021/06/16 07:36:09] root INFO:         encoder_type : rnn
+[2021/06/16 07:36:09] root INFO:         hidden_size : 48
+[2021/06/16 07:36:09] root INFO:         name : SequenceEncoder
+[2021/06/16 07:36:09] root INFO:     Transform : None
+[2021/06/16 07:36:09] root INFO:     algorithm : CRNN
+[2021/06/16 07:36:09] root INFO:     model_type : rec
+[2021/06/16 07:36:09] root INFO: Eval : 
+[2021/06/16 07:36:09] root INFO:     dataset : 
+[2021/06/16 07:36:09] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/06/16 07:36:09] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/06/16 07:36:09] root INFO:         name : SimpleDataSet
+[2021/06/16 07:36:09] root INFO:         transforms : 
+[2021/06/16 07:36:09] root INFO:             DecodeImage : 
+[2021/06/16 07:36:09] root INFO:                 channel_first : False
+[2021/06/16 07:36:09] root INFO:                 img_mode : BGR
+[2021/06/16 07:36:09] root INFO:             CTCLabelEncode : None
+[2021/06/16 07:36:09] root INFO:             RecResizeImg : 
+[2021/06/16 07:36:09] root INFO:                 image_shape : [3, 32, 320]
+[2021/06/16 07:36:09] root INFO:             KeepKeys : 
+[2021/06/16 07:36:09] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/06/16 07:36:09] root INFO:     loader : 
+[2021/06/16 07:36:09] root INFO:         batch_size_per_card : 128
+[2021/06/16 07:36:09] root INFO:         drop_last : False
+[2021/06/16 07:36:09] root INFO:         num_workers : 8
+[2021/06/16 07:36:09] root INFO:         shuffle : False
+[2021/06/16 07:36:09] root INFO: Global : 
+[2021/06/16 07:36:09] root INFO:     cal_metric_during_train : True
+[2021/06/16 07:36:09] root INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2021/06/16 07:36:09] root INFO:     character_type : ch
+[2021/06/16 07:36:09] root INFO:     checkpoints : None
+[2021/06/16 07:36:09] root INFO:     debug : False
+[2021/06/16 07:36:09] root INFO:     distributed : True
+[2021/06/16 07:36:09] root INFO:     epoch_num : 500
+[2021/06/16 07:36:09] root INFO:     eval_batch_step : [0, 2000]
+[2021/06/16 07:36:09] root INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2021/06/16 07:36:09] root INFO:     infer_mode : False
+[2021/06/16 07:36:09] root INFO:     log_smooth_window : 20
+[2021/06/16 07:36:09] root INFO:     max_text_length : 25
+[2021/06/16 07:36:09] root INFO:     pretrained_model : None
+[2021/06/16 07:36:09] root INFO:     print_batch_step : 10
+[2021/06/16 07:36:09] root INFO:     save_epoch_step : 3
+[2021/06/16 07:36:09] root INFO:     save_inference_dir : None
+[2021/06/16 07:36:09] root INFO:     save_model_dir : ./output/rec_chinese_lite_v2.0_1.0_cutout_suijipinjie_ksize3_focal_CTCLoss_stride1
+[2021/06/16 07:36:09] root INFO:     save_res_path : ./output/rec/predicts_chinese_lite_v2.0_1.0_cutout_suijipinjie_ksize3_focal_CTCLoss_stride1.txt
+[2021/06/16 07:36:09] root INFO:     use_gpu : True
+[2021/06/16 07:36:09] root INFO:     use_space_char : True
+[2021/06/16 07:36:09] root INFO:     use_visualdl : False
+[2021/06/16 07:36:09] root INFO: Loss : 
+[2021/06/16 07:36:09] root INFO:     name : focal_CTCLoss
+[2021/06/16 07:36:09] root INFO: Metric : 
+[2021/06/16 07:36:09] root INFO:     main_indicator : acc
+[2021/06/16 07:36:09] root INFO:     name : RecMetric
+[2021/06/16 07:36:09] root INFO: Optimizer : 
+[2021/06/16 07:36:09] root INFO:     beta1 : 0.9
+[2021/06/16 07:36:09] root INFO:     beta2 : 0.999
+[2021/06/16 07:36:09] root INFO:     lr : 
+[2021/06/16 07:36:09] root INFO:         learning_rate : 0.001
+[2021/06/16 07:36:09] root INFO:         name : Cosine
+[2021/06/16 07:36:09] root INFO:     name : Adam
+[2021/06/16 07:36:09] root INFO:     regularizer : 
+[2021/06/16 07:36:09] root INFO:         factor : 1e-05
+[2021/06/16 07:36:09] root INFO:         name : L2
+[2021/06/16 07:36:09] root INFO: PostProcess : 
+[2021/06/16 07:36:09] root INFO:     name : CTCLabelDecode
+[2021/06/16 07:36:09] root INFO: Train : 
+[2021/06/16 07:36:09] root INFO:     dataset : 
+[2021/06/16 07:36:09] root INFO:         data_dir : ../../data/训练数据集/TrainImages
+[2021/06/16 07:36:09] root INFO:         label_file_list : ['../../data/训练数据集/LabelTrain.txt']
+[2021/06/16 07:36:09] root INFO:         name : SimpleDataSet
+[2021/06/16 07:36:09] root INFO:         transforms : 
+[2021/06/16 07:36:09] root INFO:             DecodeImage : 
+[2021/06/16 07:36:09] root INFO:                 channel_first : False
+[2021/06/16 07:36:09] root INFO:                 img_mode : BGR
+[2021/06/16 07:36:09] root INFO:             RecAug : None
+[2021/06/16 07:36:09] root INFO:             CTCLabelEncode : None
+[2021/06/16 07:36:09] root INFO:             RecResizeImg : 
+[2021/06/16 07:36:09] root INFO:                 image_shape : [3, 32, 320]
+[2021/06/16 07:36:09] root INFO:             KeepKeys : 
+[2021/06/16 07:36:09] root INFO:                 keep_keys : ['image', 'label', 'length']
+[2021/06/16 07:36:09] root INFO:     loader : 
+[2021/06/16 07:36:09] root INFO:         batch_size_per_card : 128
+[2021/06/16 07:36:09] root INFO:         drop_last : True
+[2021/06/16 07:36:09] root INFO:         num_workers : 8
+[2021/06/16 07:36:09] root INFO:         shuffle : True
+[2021/06/16 07:36:09] root INFO: train with paddle 2.0.2 and device CUDAPlace(0)
+W0616 07:36:09.522107 16278 nccl_context.cc:142] Socket connect worker 127.0.0.1:44109 failed, try again after 3 seconds.
+I0616 07:36:12.522648 16278 nccl_context.cc:189] init nccl context nranks: 8 local rank: 0 gpu id: 0 ring id: 0
+W0616 07:36:15.419706 16278 device_context.cc:362] Please NOTE: device: 0, GPU Compute Capability: 7.5, Driver API Version: 10.2, Runtime API Version: 10.2
+W0616 07:36:15.424242 16278 device_context.cc:372] device: 0, cuDNN Version: 7.6.
+[2021/06/16 07:36:20] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+[2021/06/16 07:36:20] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+{'Total': Tensor(shape=[1], dtype=int64, place=CUDAPlace(0), stop_gradient=False,
+       [1853875])}
+2021-06-16 07:36:20,952 - INFO - If regularizer of a Parameter has been set by 'paddle.ParamAttr' or 'static.WeightNormParamAttr' already. The weight_decay[L2Decay, regularization_coeff=0.000010] in Optimizer will not take effect, and it will only be applied to other Parameters!
+[2021/06/16 07:36:20] root INFO: train from scratch
+[2021/06/16 07:36:20] root INFO: train dataloader has 97 iters
+[2021/06/16 07:36:20] root INFO: valid dataloader has 782 iters
+[2021/06/16 07:36:20] root INFO: During the training process, after the 0th iteration, an evaluation is run every 2000 iterations
+[2021/06/16 07:36:21] root INFO: Initialize indexs of datasets:['../../data/训练数据集/LabelTrain.txt']
+main proc 16278 exit, kill process group 16135
