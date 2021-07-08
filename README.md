@@ -44,4 +44,11 @@ B：此处由项目作者进行撰写使用方式。
 ## 安装所需的python库
 pip install -r requirements.txt
 
+## 开始训练
+pip install -r requirements.txt
 
+## 生成推理模型，测试模型大小
+pip install -r requirements.txt
+
+## 对测试集进行推理，并生成可以提交的txt文件
+pip install -r requirements.txt
