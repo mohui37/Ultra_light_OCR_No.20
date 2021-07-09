@@ -51,10 +51,10 @@ B：此处由项目作者进行撰写使用方式。
 pip install -r requirements.txt
 
 ## 开始训练
-pip install -r requirements.txt
+cd work/PaddleOCR && python3 tools/train.py -c configs/rec/ch_ppocr_v2.0/rec_chinese_lite_train_v2.0_2_cutout_suijipinjie_ksize=3_test.yml
 
 ## 生成推理模型，测试模型大小
-pip install -r requirements.txt
+python tools/export_model.py -c configs/rec/ch_ppocr_v2.0/rec_chinese_lite_train_v2.0_2_cutout_suijipinjie_ksize=3.yml -o Global.pretrained_model=./rec_chinese_lite_v2.0_1.0_cutout_suijipinjie_ksize3_test/best_accuracy  Global.save_inference_dir=./inference/rec_inference_lite_cutout_suijipinjie_ksize3_test/
 
 ## 对测试集进行推理，并生成可以提交的txt文件
-pip install -r requirements.txt
+python tools/infer_rec.py -c configs/rec/ch_ppocr_v2.0/rec_chinese_lite_train_v2.0_2_cutout_suijipinjie_ksize=3.yml -o Global.infer_img="../data/A榜测试数据集/TestAImages" Global.pretrained_model="./output/rec_chinese_lite_v2.0_1.0_cutout_suijipinjie_ksize3_test/best_accuracy"
